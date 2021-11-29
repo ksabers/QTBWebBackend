@@ -23,8 +23,7 @@ namespace QTBWebBackend.Repositories
                 {
                     Name = persona.Nome + " " + persona.Cognome,
                     Value = (persona.MinutiPregressi + persona.VoliPilotaNavigations.Sum(voli => voli.Durata)) / 60
-                })
-                .Take(5);
+                });
         }
 
         public IEnumerable<OreDiVoloPerAereoViewModel> GetOreDiVoloPerAereo()
@@ -34,8 +33,7 @@ namespace QTBWebBackend.Repositories
                 {
                     Name = aereo.Marche,
                     Value = (aereo.MinutiPregressi + aereo.Volis.Sum(voli => voli.Durata)) / 60
-                })
-                .Take(5);
+                });
         }
     }
 }
