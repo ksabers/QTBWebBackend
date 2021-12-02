@@ -1,4 +1,5 @@
-﻿using QTBWebBackend.ViewModels;
+﻿using QTBWebBackend.Models;
+using QTBWebBackend.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,6 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<VoloViewModel> GetVoli();
         VoloViewModel? GetVolo(long idVolo);
-        Task<bool> PostVolo(VoloViewModel volo);
+        Task<Voli?> PostVolo(VoloViewModel volo);
     }
 }

@@ -48,7 +48,7 @@ namespace QTBWebBackend.Repositories
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     IdAeroportoFine = volo.AeroportoFineNavigation.Id,
                     AeroportoFine = volo.AeroportoFineNavigation.Nome
-                });
+                }).OrderByDescending(volo => volo.OraFine);
         }
 
         public VoloViewModel? GetVolo(long idVolo)
@@ -88,7 +88,7 @@ namespace QTBWebBackend.Repositories
                 .FirstOrDefault();
         }
 
-        public async Task<bool> PostVolo(VoloViewModel voloModel)
+        public async Task<Voli?> PostVolo(VoloViewModel voloModel)
         {
             var nuovoVolo = new Voli();
 
@@ -112,11 +112,18 @@ namespace QTBWebBackend.Repositories
             try
             {
                 _contesto.Add(nuovoVolo);
-                return (await _contesto.SaveChangesAsync()) > 0;
+                if ((await _contesto.SaveChangesAsync()) > 0)
+                {
+                    return nuovoVolo;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (DbUpdateException)
             {
-                return false;
+                return null;
             }
 
         }
