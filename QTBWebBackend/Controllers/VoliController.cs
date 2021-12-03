@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QTBWebBackend.Interfaces;
 using QTBWebBackend.Models;
 using QTBWebBackend.ViewModels;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace QTBWebBackend.Controllers
@@ -32,10 +33,10 @@ namespace QTBWebBackend.Controllers
         [HttpPost("api/voli")]
         public async Task<IActionResult> PostVolo([FromBody] VoloViewModel volo)
         {
-            Voli? VoloCreato = await _repository.PostVolo(volo);
-            if (VoloCreato != null)
+            Voli? voloCreato = await _repository.PostVolo(volo);
+            if (voloCreato != null)
             {
-                return Created($"api/voli/{VoloCreato.Id}", VoloCreato);
+                return Created($"api/voli/{voloCreato.Id}", voloCreato);
             }
             else
             {

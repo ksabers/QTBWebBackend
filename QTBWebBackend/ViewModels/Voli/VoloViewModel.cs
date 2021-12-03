@@ -16,7 +16,7 @@ namespace QTBWebBackend.ViewModels
         public long IdPilota { get; set; }
         public string? NomePilota { get; set; }
         public string? CognomePilota { get; set; }
-        public long IdPasseggero { get; set; }
+        public long? IdPasseggero { get; set; }
         public string? NomePasseggero { get; set; }
         public string? CognomePasseggero { get; set; }
         public DateTime? OraInizio { get; set; }
