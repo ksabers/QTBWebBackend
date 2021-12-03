@@ -26,10 +26,10 @@ namespace QTBWebBackend.Models
         public virtual DbSet<Ruoli> Ruolis { get; set; }
         public virtual DbSet<ScadenzeAerei> ScadenzeAereis { get; set; }
         public virtual DbSet<ScadenzePersone> ScadenzePersones { get; set; }
+        public virtual DbSet<TipiAeroporti> TipiAeroportis { get; set; }
         public virtual DbSet<TipiScadenzeAerei> TipiScadenzeAereis { get; set; }
         public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; }
         public virtual DbSet<Voli> Volis { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -99,20 +99,67 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.Asfalto).HasColumnName("asfalto");
+
                 entity.Property(e => e.Coordinate)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("coordinate");
 
+                entity.Property(e => e.Denominazione).HasColumnName("denominazione");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.Iata)
+                    .HasMaxLength(3)
+                    .HasColumnName("IATA");
+
+                entity.Property(e => e.Icao)
+                    .HasMaxLength(4)
+                    .HasColumnName("ICAO");
+
                 entity.Property(e => e.Identificativo)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(4)
                     .HasColumnName("identificativo");
+
+                entity.Property(e => e.Indirizzo)
+                    .HasMaxLength(50)
+                    .HasColumnName("indirizzo");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("nome");
+
+                entity.Property(e => e.Note).HasColumnName("note");
+
+                entity.Property(e => e.Qfu)
+                    .HasMaxLength(10)
+                    .HasColumnName("QFU");
+
+                entity.Property(e => e.Qnh).HasColumnName("QNH");
+
+                entity.Property(e => e.Radio)
+                    .HasMaxLength(50)
+                    .HasColumnName("radio");
+
+                entity.Property(e => e.Telefono)
+                    .HasMaxLength(50)
+                    .HasColumnName("telefono");
+
+                entity.Property(e => e.TipoAeroporto).HasColumnName("tipo_aeroporto");
+
+                entity.Property(e => e.Web)
+                    .HasMaxLength(50)
+                    .HasColumnName("web");
+
+                entity.HasOne(d => d.TipoAeroportoNavigation)
+                    .WithMany(p => p.Aeroportis)
+                    .HasForeignKey(d => d.TipoAeroporto)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Aeroporti_TipiAeroporti");
             });
 
             modelBuilder.Entity<Login>(entity =>
@@ -243,7 +290,8 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Descrizione)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(50)
+                    .HasColumnName("descrizione");
             });
 
             modelBuilder.Entity<ScadenzeAerei>(entity =>
@@ -310,6 +358,18 @@ namespace QTBWebBackend.Models
                     .HasForeignKey(d => d.TipoScadenza)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ScadenzePersone_TipiScadenzePersone");
+            });
+
+            modelBuilder.Entity<TipiAeroporti>(entity =>
+            {
+                entity.ToTable("TipiAeroporti");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Descrizione)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("descrizione");
             });
 
             modelBuilder.Entity<TipiScadenzeAerei>(entity =>
