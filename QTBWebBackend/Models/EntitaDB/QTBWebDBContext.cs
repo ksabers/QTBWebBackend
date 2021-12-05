@@ -31,6 +31,7 @@ namespace QTBWebBackend.Models
         public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; }
         public virtual DbSet<Voli> Volis { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
@@ -120,13 +121,14 @@ namespace QTBWebBackend.Models
                     .HasColumnName("ICAO");
 
                 entity.Property(e => e.Identificativo)
-                    .IsRequired()
                     .HasMaxLength(4)
                     .HasColumnName("identificativo");
 
                 entity.Property(e => e.Indirizzo)
                     .HasMaxLength(50)
                     .HasColumnName("indirizzo");
+
+                entity.Property(e => e.Lunghezza).HasColumnName("lunghezza");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()

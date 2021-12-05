@@ -21,8 +21,23 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = aeroporto.Id,
                     Nome = aeroporto.Nome,
+                    Denominazione = aeroporto.Denominazione,
+                    IdTipoAeroporto = aeroporto.TipoAeroportoNavigation.Id,
+                    TipoAeroporto = aeroporto.TipoAeroportoNavigation.Descrizione,
                     Identificativo = aeroporto.Identificativo,
-                    Coordinate = aeroporto.Coordinate
+                    Coordinate = aeroporto.Coordinate,
+                    Icao = aeroporto.Icao,
+                    Iata = aeroporto.Iata,
+                    QNH = aeroporto.Qnh,
+                    QFU = aeroporto.Qfu,
+                    Lunghezza = aeroporto.Lunghezza,
+                    Asfalto = aeroporto.Asfalto,
+                    Radio = aeroporto.Radio,
+                    Indirizzo = aeroporto.Indirizzo,
+                    Telefono = aeroporto.Telefono,
+                    Email = aeroporto.Email,
+                    Web = aeroporto.Web,
+                    Note = aeroporto.Note
                 }).OrderBy(aeroporto => aeroporto.Nome);
         }
 
@@ -34,8 +49,23 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = aeroporto.Id,
                     Nome = aeroporto.Nome,
+                    Denominazione = aeroporto.Denominazione,
+                    IdTipoAeroporto = aeroporto.TipoAeroportoNavigation.Id,
+                    TipoAeroporto = aeroporto.TipoAeroportoNavigation.Descrizione,
                     Identificativo = aeroporto.Identificativo,
-                    Coordinate = aeroporto.Coordinate
+                    Coordinate = aeroporto.Coordinate,
+                    Icao = aeroporto.Icao,
+                    Iata = aeroporto.Iata,
+                    QNH = aeroporto.Qnh,
+                    QFU = aeroporto.Qfu,
+                    Lunghezza = aeroporto.Lunghezza,
+                    Asfalto = aeroporto.Asfalto,
+                    Radio = aeroporto.Radio,
+                    Indirizzo = aeroporto.Indirizzo,
+                    Telefono = aeroporto.Telefono,
+                    Email = aeroporto.Email,
+                    Web = aeroporto.Web,
+                    Note = aeroporto.Note
                 })
                 .FirstOrDefault();
         }

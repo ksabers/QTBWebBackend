@@ -24,6 +24,7 @@ namespace QTBWebBackend.Models
         public string Iata { get; set; }
         public int? Qnh { get; set; }
         public string Qfu { get; set; }
+        public int? Lunghezza { get; set; }
         public bool Asfalto { get; set; }
         public string Radio { get; set; }
         public string Indirizzo { get; set; }
