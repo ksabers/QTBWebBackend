@@ -440,6 +440,14 @@ namespace QTBWebBackend.Models
                     .HasColumnName("ora_inizio")
                     .HasComputedColumnSql("(dateadd(minute, -(([orametro_ore_fine]*(60)+[orametro_minuti_fine])-([orametro_ore_inizio]*(60)+[orametro_minuti_inizio])),[ora_fine]))", true);
 
+                entity.Property(e => e.OraLocaleAtterraggio)
+                    .HasMaxLength(5)
+                    .HasColumnName("ora_locale_atterraggio");
+
+                entity.Property(e => e.OraLocaleDecollo)
+                    .HasMaxLength(5)
+                    .HasColumnName("ora_locale_decollo");
+
                 entity.Property(e => e.OrametroMinutiFine).HasColumnName("orametro_minuti_fine");
 
                 entity.Property(e => e.OrametroMinutiInizio).HasColumnName("orametro_minuti_inizio");

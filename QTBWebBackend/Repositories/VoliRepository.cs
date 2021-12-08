@@ -33,9 +33,11 @@ namespace QTBWebBackend.Repositories
                     NomePasseggero = volo.PasseggeroNavigation.Nome,
                     CognomePasseggero = volo.PasseggeroNavigation.Cognome,
                     OraInizio = volo.OraInizio,
+                    OraLocaleDecollo = volo.OraLocaleDecollo,
                     OrametroOreInizio = volo.OrametroOreInizio,
                     OrametroMinutiInizio = volo.OrametroMinutiInizio,
                     OraFine = volo.OraFine,
+                    OraLocaleAtterraggio = volo.OraLocaleAtterraggio,
                     OrametroOreFine = volo.OrametroOreFine,
                     OrametroMinutiFine = volo.OrametroMinutiFine,
                     Durata = volo.Durata,
@@ -69,9 +71,11 @@ namespace QTBWebBackend.Repositories
                     NomePasseggero = volo.PasseggeroNavigation.Nome,
                     CognomePasseggero = volo.PasseggeroNavigation.Cognome,
                     OraInizio = volo.OraInizio,
+                    OraLocaleDecollo = volo.OraLocaleDecollo,
                     OrametroOreInizio = volo.OrametroOreInizio,
                     OrametroMinutiInizio = volo.OrametroMinutiInizio,
                     OraFine = volo.OraFine,
+                    OraLocaleAtterraggio = volo.OraLocaleAtterraggio,
                     OrametroOreFine = volo.OrametroOreFine,
                     OrametroMinutiFine = volo.OrametroMinutiFine,
                     Durata = volo.Durata,
@@ -92,22 +96,24 @@ namespace QTBWebBackend.Repositories
         {
             var nuovoVolo = new Voli();
 
-            //nuovoVolo.Descrizione = voloModel.Descrizione;
-            //nuovoVolo.Aereo = voloModel.IdAereo;
-            //nuovoVolo.Pilota = voloModel.IdPilota;
-            //nuovoVolo.Passeggero = voloModel.IdPasseggero;
-            //nuovoVolo.OrametroOreInizio = voloModel.OrametroOreInizio;
-            //nuovoVolo.OrametroMinutiInizio = voloModel.OrametroMinutiInizio;
-            //nuovoVolo.OraFine = voloModel.OraFine;
-            //nuovoVolo.OrametroOreFine = voloModel.OrametroOreFine;
-            //nuovoVolo.OrametroMinutiFine = voloModel.OrametroMinutiFine;
-            //nuovoVolo.CarburanteInizialeSx = voloModel.CarburanteInizialeSx;
-            //nuovoVolo.CarburanteInizialeDx = voloModel.CarburanteInizialeDx;
-            //nuovoVolo.CarburanteAggiuntoSx = voloModel.CarburanteAggiuntoSx;
-            //nuovoVolo.CarburanteAggiuntoDx = voloModel.CarburanteAggiuntoDx;
-            //nuovoVolo.Olio = voloModel.Olio;
-            //nuovoVolo.AeroportoInizio = voloModel.IdAeroportoInizio;
-            //nuovoVolo.AeroportoFine = voloModel.IdAeroportoFine;
+            nuovoVolo.Descrizione = voloModel.Descrizione;
+            nuovoVolo.Aereo = voloModel.IdAereo;
+            nuovoVolo.Pilota = voloModel.IdPilota;
+            nuovoVolo.Passeggero = voloModel.IdPasseggero;
+            nuovoVolo.OrametroOreInizio = voloModel.OrametroOreInizio;
+            nuovoVolo.OrametroMinutiInizio = voloModel.OrametroMinutiInizio;
+            nuovoVolo.OraLocaleDecollo = voloModel.OraLocaleDecollo;
+            nuovoVolo.OraFine = voloModel.OraFine;
+            nuovoVolo.OraLocaleAtterraggio = voloModel.OraLocaleAtterraggio;
+            nuovoVolo.OrametroOreFine = voloModel.OrametroOreFine;
+            nuovoVolo.OrametroMinutiFine = voloModel.OrametroMinutiFine;
+            nuovoVolo.CarburanteInizialeSx = voloModel.CarburanteInizialeSx;
+            nuovoVolo.CarburanteInizialeDx = voloModel.CarburanteInizialeDx;
+            nuovoVolo.CarburanteAggiuntoSx = voloModel.CarburanteAggiuntoSx;
+            nuovoVolo.CarburanteAggiuntoDx = voloModel.CarburanteAggiuntoDx;
+            nuovoVolo.Olio = voloModel.Olio;
+            nuovoVolo.AeroportoInizio = voloModel.IdAeroportoInizio;
+            nuovoVolo.AeroportoFine = voloModel.IdAeroportoFine;
 
             try
             {

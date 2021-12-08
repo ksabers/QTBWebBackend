@@ -42,9 +42,6 @@ namespace QTBWebBackend.Controllers
             {
                 return BadRequest("Errore");
             }
-            //if (await _repository.PostVolo(volo))
-            //    return Created($"api/voli/{volo.Id}", volo);
-            //return BadRequest("Errore");
         }
         public ActionResult Create(IFormCollection collection)
         {

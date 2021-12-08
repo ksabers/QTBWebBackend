@@ -20,9 +20,11 @@ namespace QTBWebBackend.ViewModels
         public string? NomePasseggero { get; set; }
         public string? CognomePasseggero { get; set; }
         public DateTime? OraInizio { get; set; }
+        public string? OraLocaleDecollo { get; set; }
         public int OrametroOreInizio { get; set; }
         public int OrametroMinutiInizio { get; set; }
         public DateTime OraFine { get; set; }
+        public string? OraLocaleAtterraggio { get; set; }
         public int OrametroOreFine { get; set; }
         public int OrametroMinutiFine { get; set; }
         public int? Durata { get; set; }
