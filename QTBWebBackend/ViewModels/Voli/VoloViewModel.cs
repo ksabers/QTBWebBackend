@@ -35,7 +35,9 @@ namespace QTBWebBackend.ViewModels
         public int? Olio { get; set; }
         public long IdAeroportoInizio { get; set; }
         public string? AeroportoInizio { get; set; }
+        public string? CoordinateInizio { get; set; }
         public long IdAeroportoFine { get; set; }
         public string? AeroportoFine { get; set; }
+        public string? CoordinateFine { get; set; }
     }
 }

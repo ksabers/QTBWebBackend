@@ -48,8 +48,10 @@ namespace QTBWebBackend.Repositories
                     Olio = volo.Olio,
                     IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
+                    CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
                     IdAeroportoFine = volo.AeroportoFineNavigation.Id,
-                    AeroportoFine = volo.AeroportoFineNavigation.Nome
+                    AeroportoFine = volo.AeroportoFineNavigation.Nome,
+                    CoordinateFine = volo.AeroportoFineNavigation.Coordinate
                 }).OrderByDescending(volo => volo.OraFine);
         }
 
@@ -86,8 +88,10 @@ namespace QTBWebBackend.Repositories
                     Olio = volo.Olio,
                     IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
+                    CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
                     IdAeroportoFine = volo.AeroportoFineNavigation.Id,
-                    AeroportoFine = volo.AeroportoFineNavigation.Nome
+                    AeroportoFine = volo.AeroportoFineNavigation.Nome,
+                    CoordinateFine = volo.AeroportoFineNavigation.Coordinate
                 })
                 .FirstOrDefault();
         }
