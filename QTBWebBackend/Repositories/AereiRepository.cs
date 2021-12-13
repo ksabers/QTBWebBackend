@@ -26,6 +26,7 @@ namespace QTBWebBackend.Repositories
                     Marche = aereo.Marche,
                     MinutiPregressi = aereo.MinutiPregressi,
                     MinutiVolo = aereo.Volis.Sum(volo => volo.Durata),
+                    PesoVuoto = aereo.PesoVuoto,
                     VoloPiuRecente = aereo.Volis.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
                     Proprietari = aereo.AereiPossedutis.Select(proprietario => new ProprietarioViewModel
                     {
@@ -49,6 +50,7 @@ namespace QTBWebBackend.Repositories
                     Marche = aereo.Marche,
                     MinutiPregressi = aereo.MinutiPregressi,
                     MinutiVolo = aereo.Volis.Sum(volo => volo.Durata),
+                    PesoVuoto = aereo.PesoVuoto,
                     VoloPiuRecente = aereo.Volis.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
                     Proprietari = aereo.AereiPossedutis.Select(proprietario => new ProprietarioViewModel
                     {

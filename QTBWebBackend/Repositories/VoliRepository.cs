@@ -26,6 +26,7 @@ namespace QTBWebBackend.Repositories
                     IdAereo = volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
+                    PesoVuoto = volo.AereoNavigation.PesoVuoto,
                     IdPilota = volo.PilotaNavigation.Id,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
@@ -46,6 +47,8 @@ namespace QTBWebBackend.Repositories
                     CarburanteAggiuntoSx = volo.CarburanteAggiuntoSx,
                     CarburanteAggiuntoDx = volo.CarburanteAggiuntoDx,
                     Olio = volo.Olio,
+                    PesoOccupanti = volo.PesoOccupanti,
+                    Bagaglio = volo.Bagaglio,
                     IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
@@ -66,6 +69,7 @@ namespace QTBWebBackend.Repositories
                     IdAereo = volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
+                    PesoVuoto = volo.AereoNavigation.PesoVuoto,
                     IdPilota = volo.PilotaNavigation.Id,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
@@ -86,6 +90,8 @@ namespace QTBWebBackend.Repositories
                     CarburanteAggiuntoSx = volo.CarburanteAggiuntoSx,
                     CarburanteAggiuntoDx = volo.CarburanteAggiuntoDx,
                     Olio = volo.Olio,
+                    PesoOccupanti = volo.PesoOccupanti,
+                    Bagaglio = volo.Bagaglio,
                     IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
@@ -106,6 +112,7 @@ namespace QTBWebBackend.Repositories
                     IdAereo =volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
+                    PesoVuoto = volo.AereoNavigation.PesoVuoto,
                     IdPilota = volo.PilotaNavigation.Id,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
@@ -126,6 +133,8 @@ namespace QTBWebBackend.Repositories
                     CarburanteAggiuntoSx = volo.CarburanteAggiuntoSx,
                     CarburanteAggiuntoDx = volo.CarburanteAggiuntoDx,
                     Olio = volo.Olio,
+                    PesoOccupanti = volo.PesoOccupanti,
+                    Bagaglio = volo.Bagaglio,
                     IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
@@ -156,6 +165,8 @@ namespace QTBWebBackend.Repositories
             nuovoVolo.CarburanteAggiuntoSx = voloModel.CarburanteAggiuntoSx;
             nuovoVolo.CarburanteAggiuntoDx = voloModel.CarburanteAggiuntoDx;
             nuovoVolo.Olio = voloModel.Olio;
+            nuovoVolo.PesoOccupanti = voloModel.PesoOccupanti;
+            nuovoVolo.Bagaglio = voloModel.Bagaglio;
             nuovoVolo.AeroportoInizio = voloModel.IdAeroportoInizio;
             nuovoVolo.AeroportoFine = voloModel.IdAeroportoFine;
 

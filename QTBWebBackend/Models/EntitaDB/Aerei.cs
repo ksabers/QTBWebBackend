@@ -19,6 +19,7 @@ namespace QTBWebBackend.Models
         public string Costruttore { get; set; }
         public string Modello { get; set; }
         public string Marche { get; set; }
+        public int? PesoVuoto { get; set; }
         public int MinutiPregressi { get; set; }
 
         public virtual ICollection<AereiPosseduti> AereiPossedutis { get; set; }

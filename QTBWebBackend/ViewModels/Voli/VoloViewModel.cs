@@ -13,6 +13,7 @@ namespace QTBWebBackend.ViewModels
         public long IdAereo { get; set; }
         public string? Modello { get; set; }
         public string? Marche { get; set; }
+        public int? PesoVuoto { get; set; }
         public long IdPilota { get; set; }
         public string? NomePilota { get; set; }
         public string? CognomePilota { get; set; }
@@ -33,6 +34,8 @@ namespace QTBWebBackend.ViewModels
         public int? CarburanteAggiuntoSx { get; set; }
         public int? CarburanteAggiuntoDx { get; set; }
         public int? Olio { get; set; }
+        public int? PesoOccupanti { get; set; }
+        public int? Bagaglio { get; set; }
         public long IdAeroportoInizio { get; set; }
         public string? AeroportoInizio { get; set; }
         public string? CoordinateInizio { get; set; }

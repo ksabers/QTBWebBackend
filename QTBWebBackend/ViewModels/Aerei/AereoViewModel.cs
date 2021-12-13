@@ -15,6 +15,7 @@ namespace QTBWebBackend.ViewModels
         public string? Marche { get; set; }
         public long MinutiPregressi { get; set; }
         public int? MinutiVolo { get; set; }
+        public int? PesoVuoto { get; set; }
         public Voli? VoloPiuRecente { get; set; }
         public ICollection<ProprietarioViewModel>? Proprietari { get; set; }
     }

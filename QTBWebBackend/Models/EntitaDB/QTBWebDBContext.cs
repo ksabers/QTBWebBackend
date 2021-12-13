@@ -57,6 +57,8 @@ namespace QTBWebBackend.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("modello");
+
+                entity.Property(e => e.PesoVuoto).HasColumnName("peso_vuoto");
             });
 
             modelBuilder.Entity<AereiPosseduti>(entity =>
@@ -414,6 +416,8 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.AeroportoInizio).HasColumnName("aeroporto_inizio");
 
+                entity.Property(e => e.Bagaglio).HasColumnName("bagaglio");
+
                 entity.Property(e => e.CarburanteAggiuntoDx).HasColumnName("carburante_aggiunto_dx");
 
                 entity.Property(e => e.CarburanteAggiuntoSx).HasColumnName("carburante_aggiunto_sx");
@@ -456,6 +460,8 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.OrametroOreInizio).HasColumnName("orametro_ore_inizio");
 
                 entity.Property(e => e.Passeggero).HasColumnName("passeggero");
+
+                entity.Property(e => e.PesoOccupanti).HasColumnName("peso_occupanti");
 
                 entity.Property(e => e.Pilota).HasColumnName("pilota");
 

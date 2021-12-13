@@ -31,6 +31,8 @@ namespace QTBWebBackend.Models
         public int? CarburanteAggiuntoSx { get; set; }
         public int? CarburanteAggiuntoDx { get; set; }
         public int? Olio { get; set; }
+        public int? PesoOccupanti { get; set; }
+        public int? Bagaglio { get; set; }
         public long AeroportoInizio { get; set; }
         public long AeroportoFine { get; set; }
 
