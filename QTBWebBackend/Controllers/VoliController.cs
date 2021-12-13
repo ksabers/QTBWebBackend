@@ -23,6 +23,12 @@ namespace QTBWebBackend.Controllers
             return Ok(_repository.GetVoli());
         }
 
+        [HttpGet("api/voli/aerei/{idAereo}")]
+        public IActionResult GetVoliDiUnAereo(long idAereo)
+        {
+            return Ok(_repository.GetVoliDiUnAereo(idAereo));
+        }
+
         [HttpGet("api/voli/{idVolo}")]
         public IActionResult GetVolo(long idVolo)
         {

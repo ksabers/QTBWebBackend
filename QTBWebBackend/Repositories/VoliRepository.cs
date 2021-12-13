@@ -55,6 +55,46 @@ namespace QTBWebBackend.Repositories
                 }).OrderByDescending(volo => volo.OraFine);
         }
 
+        public IEnumerable<VoloViewModel> GetVoliDiUnAereo(long idAereo)
+        {
+            return _contesto.Volis
+                .Where(volo => volo.Aereo == idAereo)
+                .Select(volo => new VoloViewModel
+                {
+                    Id = volo.Id,
+                    Descrizione = volo.Descrizione,
+                    IdAereo = volo.Aereo,
+                    Modello = volo.AereoNavigation.Modello,
+                    Marche = volo.AereoNavigation.Marche,
+                    IdPilota = volo.PilotaNavigation.Id,
+                    NomePilota = volo.PilotaNavigation.Nome,
+                    CognomePilota = volo.PilotaNavigation.Cognome,
+                    IdPasseggero = volo.PasseggeroNavigation.Id,
+                    NomePasseggero = volo.PasseggeroNavigation.Nome,
+                    CognomePasseggero = volo.PasseggeroNavigation.Cognome,
+                    OraInizio = volo.OraInizio,
+                    OraLocaleDecollo = volo.OraLocaleDecollo,
+                    OrametroOreInizio = volo.OrametroOreInizio,
+                    OrametroMinutiInizio = volo.OrametroMinutiInizio,
+                    OraFine = volo.OraFine,
+                    OraLocaleAtterraggio = volo.OraLocaleAtterraggio,
+                    OrametroOreFine = volo.OrametroOreFine,
+                    OrametroMinutiFine = volo.OrametroMinutiFine,
+                    Durata = volo.Durata,
+                    CarburanteInizialeSx = volo.CarburanteInizialeSx,
+                    CarburanteInizialeDx = volo.CarburanteInizialeDx,
+                    CarburanteAggiuntoSx = volo.CarburanteAggiuntoSx,
+                    CarburanteAggiuntoDx = volo.CarburanteAggiuntoDx,
+                    Olio = volo.Olio,
+                    IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
+                    AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
+                    CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
+                    IdAeroportoFine = volo.AeroportoFineNavigation.Id,
+                    AeroportoFine = volo.AeroportoFineNavigation.Nome,
+                    CoordinateFine = volo.AeroportoFineNavigation.Coordinate
+                }).OrderBy(volo => volo.Id);
+        }
+
         public VoloViewModel? GetVolo(long idVolo)
         {
             return _contesto.Volis

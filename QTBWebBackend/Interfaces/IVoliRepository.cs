@@ -8,6 +8,7 @@ namespace QTBWebBackend.Interfaces
     public interface IVoliRepository
     {
         IEnumerable<VoloViewModel> GetVoli();
+        IEnumerable<VoloViewModel> GetVoliDiUnAereo(long idAereo);
         VoloViewModel? GetVolo(long idVolo);
         Task<Voli?> PostVolo(VoloViewModel volo);
     }
