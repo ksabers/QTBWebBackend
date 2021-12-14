@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Models\EntitaDB\" />
+    <Folder Include="_Database\" />
   </ItemGroup>
 
 </Project>
