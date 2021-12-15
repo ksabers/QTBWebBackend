@@ -39,6 +39,7 @@ namespace QTBWebBackend
             });
             services.AddDbContext<QTBWebDBContext>();
             services.AddScoped<IAeroportiRepository, AeroportiRepository>();
+            services.AddScoped<ITipiAeroportiRepository, TipiAeroportiRepository>();
             services.AddScoped<IPersoneRepository, PersoneRepository>();
             services.AddScoped<IVoliRepository, VoliRepository>();
             services.AddScoped<IAereiRepository, AereiRepository>();
