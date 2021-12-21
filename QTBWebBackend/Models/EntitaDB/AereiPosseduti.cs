@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class AereiPosseduti
@@ -12,7 +10,7 @@ namespace QTBWebBackend.Models
         public long Aereo { get; set; }
         public int? Quota { get; set; }
 
-        public virtual Aerei AereoNavigation { get; set; }
-        public virtual Persone PersonaNavigation { get; set; }
+        public virtual Aerei AereoNavigation { get; set; } = null!;
+        public virtual Persone PersonaNavigation { get; set; } = null!;
     }
 }

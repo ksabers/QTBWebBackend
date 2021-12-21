@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class Aerei
@@ -16,9 +14,9 @@ namespace QTBWebBackend.Models
         }
 
         public long Id { get; set; }
-        public string Costruttore { get; set; }
-        public string Modello { get; set; }
-        public string Marche { get; set; }
+        public string Costruttore { get; set; } = null!;
+        public string Modello { get; set; } = null!;
+        public string Marche { get; set; } = null!;
         public int? PesoVuoto { get; set; }
         public int MinutiPregressi { get; set; }
 

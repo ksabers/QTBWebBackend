@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class ScadenzeAerei
@@ -12,9 +10,9 @@ namespace QTBWebBackend.Models
         public long TipoScadenza { get; set; }
         public bool Risolta { get; set; }
         public DateTime Data { get; set; }
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
-        public virtual Aerei AereoNavigation { get; set; }
-        public virtual TipiScadenzeAerei TipoScadenzaNavigation { get; set; }
+        public virtual Aerei AereoNavigation { get; set; } = null!;
+        public virtual TipiScadenzeAerei TipoScadenzaNavigation { get; set; } = null!;
     }
 }

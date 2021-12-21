@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class Voli
@@ -13,16 +11,16 @@ namespace QTBWebBackend.Models
         }
 
         public long Id { get; set; }
-        public string Descrizione { get; set; }
+        public string? Descrizione { get; set; }
         public long Pilota { get; set; }
         public long? Passeggero { get; set; }
         public long Aereo { get; set; }
         public DateTime? OraInizio { get; set; }
-        public string OraLocaleDecollo { get; set; }
+        public string? OraLocaleDecollo { get; set; }
         public int OrametroOreInizio { get; set; }
         public int OrametroMinutiInizio { get; set; }
         public DateTime OraFine { get; set; }
-        public string OraLocaleAtterraggio { get; set; }
+        public string? OraLocaleAtterraggio { get; set; }
         public int OrametroOreFine { get; set; }
         public int OrametroMinutiFine { get; set; }
         public int? Durata { get; set; }
@@ -36,11 +34,11 @@ namespace QTBWebBackend.Models
         public long AeroportoInizio { get; set; }
         public long AeroportoFine { get; set; }
 
-        public virtual Aerei AereoNavigation { get; set; }
-        public virtual Aeroporti AeroportoFineNavigation { get; set; }
-        public virtual Aeroporti AeroportoInizioNavigation { get; set; }
-        public virtual Persone PasseggeroNavigation { get; set; }
-        public virtual Persone PilotaNavigation { get; set; }
+        public virtual Aerei AereoNavigation { get; set; } = null!;
+        public virtual Aeroporti AeroportoFineNavigation { get; set; } = null!;
+        public virtual Aeroporti AeroportoInizioNavigation { get; set; } = null!;
+        public virtual Persone? PasseggeroNavigation { get; set; }
+        public virtual Persone PilotaNavigation { get; set; } = null!;
         public virtual ICollection<Manutenzioni> Manutenzionis { get; set; }
     }
 }

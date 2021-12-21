@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class ScadenzePersone
@@ -12,9 +10,9 @@ namespace QTBWebBackend.Models
         public long TipoScadenza { get; set; }
         public bool Risolta { get; set; }
         public DateTime Data { get; set; }
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
-        public virtual Persone PersonaNavigation { get; set; }
-        public virtual TipiScadenzePersone TipoScadenzaNavigation { get; set; }
+        public virtual Persone PersonaNavigation { get; set; } = null!;
+        public virtual TipiScadenzePersone TipoScadenzaNavigation { get; set; } = null!;
     }
 }

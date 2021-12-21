@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class Login
     {
         public long Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; } = null!;
+        public string Password { get; set; } = null!;
         public long Persona { get; set; }
         public long Ruolo { get; set; }
 
-        public virtual Persone PersonaNavigation { get; set; }
-        public virtual Ruoli RuoloNavigation { get; set; }
+        public virtual Persone PersonaNavigation { get; set; } = null!;
+        public virtual Ruoli RuoloNavigation { get; set; } = null!;
     }
 }

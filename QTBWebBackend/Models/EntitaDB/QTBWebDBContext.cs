@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-
-#nullable disable
 
 namespace QTBWebBackend.Models
 {
@@ -17,24 +16,22 @@ namespace QTBWebBackend.Models
         {
         }
 
-        public virtual DbSet<Aerei> Aereis { get; set; }
-        public virtual DbSet<AereiPosseduti> AereiPossedutis { get; set; }
-        public virtual DbSet<Aeroporti> Aeroportis { get; set; }
-        public virtual DbSet<Login> Logins { get; set; }
-        public virtual DbSet<Manutenzioni> Manutenzionis { get; set; }
-        public virtual DbSet<Persone> Persones { get; set; }
-        public virtual DbSet<Ruoli> Ruolis { get; set; }
-        public virtual DbSet<ScadenzeAerei> ScadenzeAereis { get; set; }
-        public virtual DbSet<ScadenzePersone> ScadenzePersones { get; set; }
-        public virtual DbSet<TipiAeroporti> TipiAeroportis { get; set; }
-        public virtual DbSet<TipiScadenzeAerei> TipiScadenzeAereis { get; set; }
-        public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; }
-        public virtual DbSet<Voli> Volis { get; set; }
+        public virtual DbSet<Aerei> Aereis { get; set; } = null!;
+        public virtual DbSet<AereiPosseduti> AereiPossedutis { get; set; } = null!;
+        public virtual DbSet<Aeroporti> Aeroportis { get; set; } = null!;
+        public virtual DbSet<Login> Logins { get; set; } = null!;
+        public virtual DbSet<Manutenzioni> Manutenzionis { get; set; } = null!;
+        public virtual DbSet<Persone> Persones { get; set; } = null!;
+        public virtual DbSet<Ruoli> Ruolis { get; set; } = null!;
+        public virtual DbSet<ScadenzeAerei> ScadenzeAereis { get; set; } = null!;
+        public virtual DbSet<ScadenzePersone> ScadenzePersones { get; set; } = null!;
+        public virtual DbSet<TipiAeroporti> TipiAeroportis { get; set; } = null!;
+        public virtual DbSet<TipiScadenzeAerei> TipiScadenzeAereis { get; set; } = null!;
+        public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; } = null!;
+        public virtual DbSet<Voli> Volis { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
-
             modelBuilder.Entity<Aerei>(entity =>
             {
                 entity.ToTable("Aerei");
@@ -42,19 +39,16 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Costruttore)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("costruttore");
 
                 entity.Property(e => e.Marche)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("marche");
 
                 entity.Property(e => e.MinutiPregressi).HasColumnName("minuti_pregressi");
 
                 entity.Property(e => e.Modello)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("modello");
 
@@ -132,7 +126,6 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Lunghezza).HasColumnName("lunghezza");
 
                 entity.Property(e => e.Nome)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("nome");
 
@@ -172,12 +165,10 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Email)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("email");
 
                 entity.Property(e => e.Password)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("password");
 
@@ -210,9 +201,7 @@ namespace QTBWebBackend.Models
                     .HasColumnType("datetime")
                     .HasColumnName("data");
 
-                entity.Property(e => e.Descrizione)
-                    .IsRequired()
-                    .HasColumnName("descrizione");
+                entity.Property(e => e.Descrizione).HasColumnName("descrizione");
 
                 entity.Property(e => e.Persona).HasColumnName("persona");
 
@@ -254,7 +243,6 @@ namespace QTBWebBackend.Models
                     .HasColumnName("citta");
 
                 entity.Property(e => e.Cognome)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("cognome");
 
@@ -265,7 +253,6 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.MinutiPregressi).HasColumnName("minuti_pregressi");
 
                 entity.Property(e => e.Nome)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("nome");
 
@@ -292,7 +279,6 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Descrizione)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("descrizione");
             });
@@ -370,7 +356,6 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Descrizione)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("descrizione");
             });
@@ -384,9 +369,7 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Descrizione)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Descrizione).HasMaxLength(50);
             });
 
             modelBuilder.Entity<TipiScadenzePersone>(entity =>
@@ -399,7 +382,6 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Descrizione)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("descrizione");
             });

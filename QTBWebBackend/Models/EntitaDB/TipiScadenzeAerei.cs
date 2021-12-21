@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace QTBWebBackend.Models
 {
     public partial class TipiScadenzeAerei
@@ -13,7 +11,7 @@ namespace QTBWebBackend.Models
         }
 
         public long Id { get; set; }
-        public string Descrizione { get; set; }
+        public string Descrizione { get; set; } = null!;
 
         public virtual ICollection<ScadenzeAerei> ScadenzeAereis { get; set; }
     }
