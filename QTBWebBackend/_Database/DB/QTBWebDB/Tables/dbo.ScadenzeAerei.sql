@@ -39,7 +39,8 @@ CREATE TABLE [dbo].[ScadenzeAerei](
 	[aereo] [bigint] NOT NULL,
 	[tipo_scadenza] [bigint] NOT NULL,
 	[risolta] [bit] NOT NULL CONSTRAINT [DF_ScadenzeAerei_risolta]  DEFAULT ((0)),
-	[data] [datetime] NOT NULL,
+	[data] [datetime] NULL,
+	[minuti] [int] NULL,
 	[note] [nvarchar](max) COLLATE Latin1_General_CI_AS NULL,
  CONSTRAINT [PK_ScadenzeAerei] PRIMARY KEY CLUSTERED 
 (
