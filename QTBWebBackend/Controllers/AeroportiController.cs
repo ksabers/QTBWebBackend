@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QTBWebBackend.Interfaces;
+using QTBWebBackend.Models;
+using QTBWebBackend.ViewModels;
+using System.Threading.Tasks;
 
 namespace QTBWebBackend.Controllers
 {
@@ -29,6 +32,20 @@ namespace QTBWebBackend.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost("api/aeroporti")]
+        public async Task<IActionResult> PostAeroporto([FromBody] AeroportoViewModel aeroporto)
+        {
+            Aeroporti? aeroportoCreato = await _repository.PostAeroporto(aeroporto);
+            if (aeroportoCreato != null)
+            {
+                return Created($"api/aeroporti/{aeroportoCreato.Id}", aeroportoCreato);
+            }
+            else
+            {
+                return BadRequest("Errore");
+            }
         }
 
         // POST: AeroportiController/Create

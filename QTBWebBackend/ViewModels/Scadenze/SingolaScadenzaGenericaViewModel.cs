@@ -6,7 +6,8 @@ namespace QTBWebBackend.ViewModels
     {
         public long Id { get; set; }
         public string? Tipo { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
+        public int? Minuti { get; set; }
         public string? Note { get; set; }
     }
 }

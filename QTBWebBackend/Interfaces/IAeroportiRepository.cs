@@ -1,5 +1,7 @@
-﻿using QTBWebBackend.ViewModels;
+﻿using QTBWebBackend.Models;
+using QTBWebBackend.ViewModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QTBWebBackend.Interfaces
 {
@@ -7,5 +9,7 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<AeroportoViewModel> GetAeroporti();
         AeroportoViewModel? GetAeroporto(long idAeroporto);
+
+        Task<Aeroporti?> PostAeroporto(AeroportoViewModel aeroporto);
     }
 }

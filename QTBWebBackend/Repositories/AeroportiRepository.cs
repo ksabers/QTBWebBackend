@@ -1,8 +1,10 @@
-﻿using QTBWebBackend.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using QTBWebBackend.Interfaces;
 using QTBWebBackend.Models;
 using QTBWebBackend.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace QTBWebBackend.Repositories
 {
@@ -68,6 +70,47 @@ namespace QTBWebBackend.Repositories
                     Note = aeroporto.Note
                 })
                 .FirstOrDefault();
+        }
+
+        public async Task<Aeroporti?> PostAeroporto(AeroportoViewModel aeroportoModel)
+        {
+            var nuovoAeroporto = new Aeroporti();
+
+            nuovoAeroporto.Nome = aeroportoModel.Nome;
+            nuovoAeroporto.Denominazione = aeroportoModel.Denominazione;
+            nuovoAeroporto.TipoAeroporto = aeroportoModel.IdTipoAeroporto;
+            nuovoAeroporto.Identificativo = aeroportoModel.Identificativo;
+            nuovoAeroporto.Coordinate = aeroportoModel.Coordinate;
+            nuovoAeroporto.Icao = aeroportoModel.Icao;
+            nuovoAeroporto.Iata = aeroportoModel.Iata;
+            nuovoAeroporto.Qnh = aeroportoModel.QNH;
+            nuovoAeroporto.Qfu = aeroportoModel.QFU;
+            nuovoAeroporto.Asfalto = aeroportoModel.Asfalto;
+            nuovoAeroporto.Lunghezza = aeroportoModel.Lunghezza;
+            nuovoAeroporto.Radio = aeroportoModel.Radio;
+            nuovoAeroporto.Indirizzo = aeroportoModel.Indirizzo;
+            nuovoAeroporto.Telefono = aeroportoModel.Telefono;
+            nuovoAeroporto.Email = aeroportoModel.Email;
+            nuovoAeroporto.Web = aeroportoModel.Web;
+            nuovoAeroporto.Note = aeroportoModel.Note;
+
+            try
+            {
+                _contesto.Add(nuovoAeroporto);
+                if ((await _contesto.SaveChangesAsync()) > 0)
+                {
+                    return nuovoAeroporto;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (DbUpdateException)
+            {
+                return null;
+            }
+
         }
     }
 }

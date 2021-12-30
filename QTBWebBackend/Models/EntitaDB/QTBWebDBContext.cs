@@ -87,12 +87,6 @@ namespace QTBWebBackend.Models
             {
                 entity.ToTable("Aeroporti");
 
-                entity.HasIndex(e => e.Identificativo, "IX_Aeroporti")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Nome, "IX_Aeroporti_1")
-                    .IsUnique();
-
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Asfalto).HasColumnName("asfalto");
@@ -297,6 +291,8 @@ namespace QTBWebBackend.Models
                     .HasColumnType("datetime")
                     .HasColumnName("data");
 
+                entity.Property(e => e.Minuti).HasColumnName("minuti");
+
                 entity.Property(e => e.Note).HasColumnName("note");
 
                 entity.Property(e => e.Risolta).HasColumnName("risolta");
@@ -327,6 +323,8 @@ namespace QTBWebBackend.Models
                 entity.Property(e => e.Data)
                     .HasColumnType("datetime")
                     .HasColumnName("data");
+
+                entity.Property(e => e.Minuti).HasColumnName("minuti");
 
                 entity.Property(e => e.Note).HasColumnName("note");
 

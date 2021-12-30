@@ -9,7 +9,8 @@ namespace QTBWebBackend.Models
         public long Aereo { get; set; }
         public long TipoScadenza { get; set; }
         public bool Risolta { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
+        public int? Minuti { get; set; }
         public string? Note { get; set; }
 
         public virtual Aerei AereoNavigation { get; set; } = null!;
