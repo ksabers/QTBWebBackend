@@ -20,9 +20,9 @@ namespace QTBWebBackend.Controllers
         }
 
         [HttpGet("api/aerei/{idAereo}")]
-        public ActionResult GetAereo(long idAereo)
+        public ActionResult GetAerei(long idAereo)
         {
-            return Ok(_repository.GetAereo(idAereo));
+            return Ok(_repository.GetAerei(idAereo));
         }
 
         // GET: AereiController/Create

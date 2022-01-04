@@ -24,9 +24,9 @@ namespace QTBWebBackend.Controllers
         }
 
         [HttpGet("api/tipiaeroporti/{idTipoAeroporto}")]
-        public IActionResult GetAeroporto(long idTipoAeroporto)
+        public IActionResult GetTipiAeroporti(long idTipoAeroporto)
         {
-            return Ok(_repository.GetTipoAeroporto(idTipoAeroporto));
+            return Ok(_repository.GetTipiAeroporti(idTipoAeroporto));
         }
 
         // GET: TipiAeroportiController/Create

@@ -43,7 +43,7 @@ namespace QTBWebBackend.Repositories
                 }).OrderBy(aeroporto => aeroporto.Nome);
         }
 
-        public AeroportoViewModel? GetAeroporto(long idAeroporto)
+        public AeroportoViewModel? GetAeroporti(long idAeroporto)
         {
             return _contesto.Aeroportis
                 .Where(aeroporto => aeroporto.Id == idAeroporto)

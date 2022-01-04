@@ -32,7 +32,7 @@ namespace QTBWebBackend.Repositories
                 }).OrderByDescending(manutenzione => manutenzione.Data);
         }
 
-        public ManutenzioneViewModel? GetManutenzione(long idManutenzione)
+        public ManutenzioneViewModel? GetManutenzioni(long idManutenzione)
         {
             return _contesto.Manutenzionis
                 .Where(manutenzione => manutenzione.Id == idManutenzione)

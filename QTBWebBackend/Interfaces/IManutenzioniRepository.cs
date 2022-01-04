@@ -6,6 +6,6 @@ namespace QTBWebBackend.Interfaces
     public interface IManutenzioniRepository
     {
         IEnumerable<ManutenzioneViewModel> GetManutenzioni();
-        ManutenzioneViewModel? GetManutenzione(long idManutenzione);
+        ManutenzioneViewModel? GetManutenzioni(long idManutenzione);
     }
 }

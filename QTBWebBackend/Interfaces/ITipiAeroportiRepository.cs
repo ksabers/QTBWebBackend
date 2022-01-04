@@ -6,6 +6,6 @@ namespace QTBWebBackend.Interfaces
     public interface ITipiAeroportiRepository
     {
         IEnumerable<TipoAeroportoViewModel> GetTipiAeroporti();
-        TipoAeroportoViewModel? GetTipoAeroporto(long idTipoAeroporto);
+        TipoAeroportoViewModel? GetTipiAeroporti(long idTipoAeroporto);
     }
 }

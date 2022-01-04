@@ -14,46 +14,46 @@ namespace QTBWebBackend.Controllers
         }
 
         [HttpGet("api/scadenze/persone")]
-        public ActionResult GetTutteScadenze()
+        public ActionResult GetScadenze()
         {
-            return Ok(_repository.GetTutteScadenze());
+            return Ok(_repository.GetScadenze());
         }
 
         [HttpGet("api/scadenze/persone/{idPersona}")]
-        public ActionResult GetTutteScadenzeSingolaPersona(long idPersona)
+        public ActionResult GetScadenze(long idPersona)
         {
-            return Ok(_repository.GetTutteScadenzeSingolaPersona(idPersona));
+            return Ok(_repository.GetScadenze(idPersona));
         }
 
-        [HttpGet("api/scadenze/persone/{numGiorni}/{idPersona}")]
-        public ActionResult GetScadenzeInScadenzaSingolaPersona(long idPersona, int numGiorni)
-        {
-            return Ok(_repository.GetScadenzeInScadenzaSingolaPersona(idPersona, numGiorni));
-        }
+        //[HttpGet("api/scadenze/persone/{numGiorni}/{idPersona}")]
+        //public ActionResult GetScadenzeInScadenzaSingolaPersona(long idPersona, int numGiorni)
+        //{
+        //    return Ok(_repository.GetScadenzeInScadenzaSingolaPersona(idPersona, numGiorni));
+        //}
 
-        [HttpGet("api/scadenzeaerei")]
-        public ActionResult GetScadenzeAerei()
-        {
-            return Ok(_repository.GetScadenzeAerei());
-        }
+        //[HttpGet("api/scadenzeaerei")]
+        //public ActionResult GetScadenzeAerei()
+        //{
+        //    return Ok(_repository.GetScadenzeAerei());
+        //}
 
-        [HttpGet("api/scadenzeaerei/{idScadenza}")]
-        public ActionResult GetScadenzaAereo(long idScadenza)
-        {
-            return Ok(_repository.GetScadenzaAereo(idScadenza));
-        }
+        //[HttpGet("api/scadenzeaerei/{idScadenza}")]
+        //public ActionResult GetScadenzaAereo(long idScadenza)
+        //{
+        //    return Ok(_repository.GetScadenzaAereo(idScadenza));
+        //}
 
-        [HttpGet("api/scadenzepersone")]
-        public ActionResult GetScadenzePersone()
-        {
-            return Ok(_repository.GetScadenzePersone());
-        }
+        //[HttpGet("api/scadenzepersone")]
+        //public ActionResult GetScadenzePersone()
+        //{
+        //    return Ok(_repository.GetScadenzePersone());
+        //}
 
-        [HttpGet("api/scadenzepersone/{idScadenza}")]
-        public ActionResult GetScadenzaPersona(long idScadenza)
-        {
-            return Ok(_repository.GetScadenzaPersona(idScadenza));
-        }
+        //[HttpGet("api/scadenzepersone/{idScadenza}")]
+        //public ActionResult GetScadenzaPersona(long idScadenza)
+        //{
+        //    return Ok(_repository.GetScadenzaPersona(idScadenza));
+        //}
 
         // GET: AereiController/Create
         public ActionResult Create()
@@ -68,7 +68,7 @@ namespace QTBWebBackend.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(GetScadenzePersone));
+                return RedirectToAction(nameof(GetScadenze));
             }
             catch
             {
@@ -89,7 +89,7 @@ namespace QTBWebBackend.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(GetScadenzePersone));
+                return RedirectToAction(nameof(GetScadenze));
             }
             catch
             {
@@ -110,7 +110,7 @@ namespace QTBWebBackend.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(GetScadenzePersone));
+                return RedirectToAction(nameof(GetScadenze));
             }
             catch
             {

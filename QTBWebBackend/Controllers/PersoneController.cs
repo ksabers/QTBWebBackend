@@ -22,9 +22,9 @@ namespace QTBWebBackend.Controllers
 
         [Authorize]
         [HttpGet("api/persone/{idPersona}")]
-        public IActionResult GetPersona(long idPersona)
+        public IActionResult GetPersone(long idPersona)
         {
-            return Ok(_repository.GetPersona(idPersona));
+            return Ok(_repository.GetPersone(idPersona));
         }
 
 

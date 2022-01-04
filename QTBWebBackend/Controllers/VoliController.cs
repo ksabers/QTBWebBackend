@@ -30,9 +30,9 @@ namespace QTBWebBackend.Controllers
         }
 
         [HttpGet("api/voli/{idVolo}")]
-        public IActionResult GetVolo(long idVolo)
+        public IActionResult GetVoli(long idVolo)
         {
-            return Ok(_repository.GetVolo(idVolo));
+            return Ok(_repository.GetVoli(idVolo));
         }
 
 

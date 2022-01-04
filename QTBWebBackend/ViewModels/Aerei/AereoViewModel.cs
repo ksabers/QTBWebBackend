@@ -13,7 +13,7 @@ namespace QTBWebBackend.ViewModels
         public string? Costruttore { get; set; }
         public string? Modello { get; set; }
         public string? Marche { get; set; }
-        public long MinutiPregressi { get; set; }
+        public int MinutiPregressi { get; set; }
         public int? MinutiVolo { get; set; }
         public int? PesoVuoto { get; set; }
         public Voli? VoloPiuRecente { get; set; }

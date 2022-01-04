@@ -101,7 +101,7 @@ namespace QTBWebBackend.Repositories
                 }).OrderBy(volo => volo.Id);
         }
 
-        public VoloViewModel? GetVolo(long idVolo)
+        public VoloViewModel? GetVoli(long idVolo)
         {
             return _contesto.Volis
                 .Where(volo => volo.Id == idVolo)

@@ -20,9 +20,9 @@ namespace QTBWebBackend.Controllers
         }
 
         [HttpGet("api/manutenzioni/{idManutenzione}")]
-        public IActionResult GetManutenzione(long idManutenzione)
+        public IActionResult GetManutenzioni(long idManutenzione)
         {
-            return Ok(_repository.GetManutenzione(idManutenzione));
+            return Ok(_repository.GetManutenzioni(idManutenzione));
         }
 
 

@@ -6,6 +6,6 @@ namespace QTBWebBackend.Interfaces
     public interface IPersoneRepository
     {
         IEnumerable<PersonaViewModel> GetPersone();
-        PersonaViewModel? GetPersona(long idPersona);
+        PersonaViewModel? GetPersone(long idPersona);
     }
 }

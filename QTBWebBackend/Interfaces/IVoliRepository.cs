@@ -9,7 +9,7 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<VoloViewModel> GetVoli();
         IEnumerable<VoloViewModel> GetVoliDiUnAereo(long idAereo);
-        VoloViewModel? GetVolo(long idVolo);
+        VoloViewModel? GetVoli(long idVolo);
         Task<Voli?> PostVolo(VoloViewModel volo);
     }
 }

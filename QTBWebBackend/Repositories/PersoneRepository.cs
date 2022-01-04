@@ -47,7 +47,7 @@ namespace QTBWebBackend.Repositories
                 }).OrderBy(persona => persona.Cognome).ThenBy(persona => persona.Nome);
         }
 
-        public PersonaViewModel? GetPersona(long idPersona)
+        public PersonaViewModel? GetPersone(long idPersona)
         {
             return _contesto.Persones
                 .Where(persona => persona.Id == idPersona)
