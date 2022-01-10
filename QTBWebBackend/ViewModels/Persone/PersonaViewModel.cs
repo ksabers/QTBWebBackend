@@ -16,7 +16,7 @@ namespace QTBWebBackend.ViewModels
         public string? Email { get; set; }
         public int NumeroVoliDaPilota { get; set; }
         public int NumeroVoliDaPasseggero { get; set; }
-        public long? MinutiPregressi { get; set; }
+        public int? MinutiPregressi { get; set; }
         public int? MinutiVoloDaPilota { get; set; }
         public int? MinutiVoloDaPasseggero { get; set; }
         public long? IdAeroportoBase { get; set; }

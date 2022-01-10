@@ -24,6 +24,8 @@ namespace QTBWebBackend.Repositories
                     Persona = persona.Id,
                     Nome = persona.Nome,
                     Cognome = persona.Cognome,
+                    MinutiPregressi = persona.MinutiPregressi,
+                    MinutiVoloDaPilota = persona.VoliPilotaNavigations.Sum(voli => voli.Durata),
                     ScadenzePersona = persona.ScadenzePersones
                     .Where(scadenza => scadenza.Risolta == false)
                     .Select(scadenza => new SingolaScadenzaGenericaViewModel
@@ -62,6 +64,8 @@ namespace QTBWebBackend.Repositories
                     Persona = persona.Id,
                     Nome = persona.Nome,
                     Cognome = persona.Cognome,
+                    MinutiPregressi = persona.MinutiPregressi,
+                    MinutiVoloDaPilota = persona.VoliPilotaNavigations.Sum(voli => voli.Durata),
                     ScadenzePersona = persona.ScadenzePersones
                     .Where(scadenza => scadenza.Risolta == false)
                     .Select(scadenza => new SingolaScadenzaGenericaViewModel
