@@ -33,6 +33,7 @@ namespace QTBWebBackend.Repositories
                         Id = scadenza.Id,
                         Tipo = scadenza.TipoScadenzaNavigation.Descrizione,
                         Data = scadenza.Data,
+                        Minuti = scadenza.Minuti,
                         Note = scadenza.Note
                     }).ToArray(),
                     ScadenzeAerei = persona.AereiPossedutis.Select(aereo => new ScadenzeDiUnAereoViewModel
@@ -49,6 +50,7 @@ namespace QTBWebBackend.Repositories
                             Id = scadenza.Id,
                             Tipo = scadenza.TipoScadenzaNavigation.Descrizione,
                             Data = scadenza.Data,
+                            Minuti = scadenza.Minuti,
                             Note = scadenza.Note
                         }).ToArray()
                     }).ToArray()
@@ -73,6 +75,7 @@ namespace QTBWebBackend.Repositories
                         Id = scadenza.Id,
                         Tipo = scadenza.TipoScadenzaNavigation.Descrizione,
                         Data = scadenza.Data,
+                        Minuti = scadenza.Minuti,
                         Note = scadenza.Note
                     }).ToArray(),
                     ScadenzeAerei = persona.AereiPossedutis.Select(aereo => new ScadenzeDiUnAereoViewModel
@@ -89,6 +92,7 @@ namespace QTBWebBackend.Repositories
                             Id = scadenza.Id,
                             Tipo = scadenza.TipoScadenzaNavigation.Descrizione,
                             Data = scadenza.Data,
+                            Minuti = scadenza.Minuti,
                             Note = scadenza.Note
                         }).ToArray()
                     }).ToArray()
