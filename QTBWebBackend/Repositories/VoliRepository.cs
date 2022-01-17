@@ -23,14 +23,16 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = volo.Id,
                     Descrizione = volo.Descrizione,
+                    IdTipoVolo = volo.Tipo,
+                    TipoVolo = volo.TipoNavigation.Descrizione,
                     IdAereo = volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
                     PesoVuoto = volo.AereoNavigation.PesoVuoto,
-                    IdPilota = volo.PilotaNavigation.Id,
+                    IdPilota = volo.Pilota,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
-                    IdPasseggero = volo.PasseggeroNavigation.Id,
+                    IdPasseggero = volo.Passeggero,
                     NomePasseggero = volo.PasseggeroNavigation.Nome,
                     CognomePasseggero = volo.PasseggeroNavigation.Cognome,
                     OraInizio = volo.OraInizio,
@@ -49,13 +51,13 @@ namespace QTBWebBackend.Repositories
                     Olio = volo.Olio,
                     PesoOccupanti = volo.PesoOccupanti,
                     Bagaglio = volo.Bagaglio,
-                    IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
+                    IdAeroportoInizio = volo.AeroportoInizio,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
-                    IdAeroportoFine = volo.AeroportoFineNavigation.Id,
+                    IdAeroportoFine = volo.AeroportoFine,
                     AeroportoFine = volo.AeroportoFineNavigation.Nome,
                     CoordinateFine = volo.AeroportoFineNavigation.Coordinate
-                }).OrderByDescending(volo => volo.OraFine);
+                }).OrderByDescending(volo => volo.OraFine).ThenByDescending(volo => volo.Id);
         }
 
         public IEnumerable<VoloViewModel> GetVoliDiUnAereo(long idAereo)
@@ -66,14 +68,16 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = volo.Id,
                     Descrizione = volo.Descrizione,
+                    IdTipoVolo = volo.Tipo,
+                    TipoVolo = volo.TipoNavigation.Descrizione,
                     IdAereo = volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
                     PesoVuoto = volo.AereoNavigation.PesoVuoto,
-                    IdPilota = volo.PilotaNavigation.Id,
+                    IdPilota = volo.Pilota,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
-                    IdPasseggero = volo.PasseggeroNavigation.Id,
+                    IdPasseggero = volo.Passeggero,
                     NomePasseggero = volo.PasseggeroNavigation.Nome,
                     CognomePasseggero = volo.PasseggeroNavigation.Cognome,
                     OraInizio = volo.OraInizio,
@@ -92,13 +96,13 @@ namespace QTBWebBackend.Repositories
                     Olio = volo.Olio,
                     PesoOccupanti = volo.PesoOccupanti,
                     Bagaglio = volo.Bagaglio,
-                    IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
+                    IdAeroportoInizio = volo.AeroportoInizio,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
-                    IdAeroportoFine = volo.AeroportoFineNavigation.Id,
+                    IdAeroportoFine = volo.AeroportoFine,
                     AeroportoFine = volo.AeroportoFineNavigation.Nome,
                     CoordinateFine = volo.AeroportoFineNavigation.Coordinate
-                }).OrderBy(volo => volo.Id);
+                }).OrderByDescending(volo => volo.OraFine).ThenByDescending(volo => volo.Id);
         }
 
         public VoloViewModel? GetVoli(long idVolo)
@@ -109,14 +113,16 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = volo.Id,
                     Descrizione = volo.Descrizione,
+                    IdTipoVolo = volo.Tipo,
+                    TipoVolo = volo.TipoNavigation.Descrizione,
                     IdAereo =volo.Aereo,
                     Modello = volo.AereoNavigation.Modello,
                     Marche = volo.AereoNavigation.Marche,
                     PesoVuoto = volo.AereoNavigation.PesoVuoto,
-                    IdPilota = volo.PilotaNavigation.Id,
+                    IdPilota = volo.Pilota,
                     NomePilota = volo.PilotaNavigation.Nome,
                     CognomePilota = volo.PilotaNavigation.Cognome,
-                    IdPasseggero = volo.PasseggeroNavigation.Id,
+                    IdPasseggero = volo.Passeggero,
                     NomePasseggero = volo.PasseggeroNavigation.Nome,
                     CognomePasseggero = volo.PasseggeroNavigation.Cognome,
                     OraInizio = volo.OraInizio,
@@ -135,10 +141,10 @@ namespace QTBWebBackend.Repositories
                     Olio = volo.Olio,
                     PesoOccupanti = volo.PesoOccupanti,
                     Bagaglio = volo.Bagaglio,
-                    IdAeroportoInizio = volo.AeroportoInizioNavigation.Id,
+                    IdAeroportoInizio = volo.AeroportoInizio,
                     AeroportoInizio = volo.AeroportoInizioNavigation.Nome,
                     CoordinateInizio = volo.AeroportoInizioNavigation.Coordinate,
-                    IdAeroportoFine = volo.AeroportoFineNavigation.Id,
+                    IdAeroportoFine = volo.AeroportoFine,
                     AeroportoFine = volo.AeroportoFineNavigation.Nome,
                     CoordinateFine = volo.AeroportoFineNavigation.Coordinate
                 })
@@ -150,6 +156,7 @@ namespace QTBWebBackend.Repositories
             var nuovoVolo = new Voli();
 
             nuovoVolo.Descrizione = voloModel.Descrizione;
+            nuovoVolo.Tipo = voloModel.IdTipoVolo;
             nuovoVolo.Aereo = voloModel.IdAereo;
             nuovoVolo.Pilota = voloModel.IdPilota;
             nuovoVolo.Passeggero = voloModel.IdPasseggero;

@@ -10,6 +10,8 @@ namespace QTBWebBackend.ViewModels
     {
         public long Id { get; set; }
         public string? Descrizione { get; set; }
+        public long IdTipoVolo { get; set; }
+        public string? TipoVolo { get; set; }
         public long IdAereo { get; set; }
         public string? Modello { get; set; }
         public string? Marche { get; set; }
