@@ -28,6 +28,7 @@ namespace QTBWebBackend.Models
         public virtual DbSet<TipiAeroporti> TipiAeroportis { get; set; } = null!;
         public virtual DbSet<TipiScadenzeAerei> TipiScadenzeAereis { get; set; } = null!;
         public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; } = null!;
+        public virtual DbSet<TipiVoli> TipiVolis { get; set; } = null!;
         public virtual DbSet<Voli> Volis { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -384,6 +385,17 @@ namespace QTBWebBackend.Models
                     .HasColumnName("descrizione");
             });
 
+            modelBuilder.Entity<TipiVoli>(entity =>
+            {
+                entity.ToTable("TipiVoli");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Descrizione)
+                    .HasMaxLength(50)
+                    .HasColumnName("descrizione");
+            });
+
             modelBuilder.Entity<Voli>(entity =>
             {
                 entity.ToTable("Voli");
@@ -445,6 +457,8 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Pilota).HasColumnName("pilota");
 
+                entity.Property(e => e.Tipo).HasColumnName("tipo");
+
                 entity.HasOne(d => d.AereoNavigation)
                     .WithMany(p => p.Volis)
                     .HasForeignKey(d => d.Aereo)
@@ -473,6 +487,12 @@ namespace QTBWebBackend.Models
                     .HasForeignKey(d => d.Pilota)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Voli_Persone");
+
+                entity.HasOne(d => d.TipoNavigation)
+                    .WithMany(p => p.Volis)
+                    .HasForeignKey(d => d.Tipo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Voli_TipiVoli");
             });
 
             OnModelCreatingPartial(modelBuilder);

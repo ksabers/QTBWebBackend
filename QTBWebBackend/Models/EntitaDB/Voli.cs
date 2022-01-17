@@ -12,6 +12,7 @@ namespace QTBWebBackend.Models
 
         public long Id { get; set; }
         public string? Descrizione { get; set; }
+        public long Tipo { get; set; }
         public long Pilota { get; set; }
         public long? Passeggero { get; set; }
         public long Aereo { get; set; }
@@ -39,6 +40,7 @@ namespace QTBWebBackend.Models
         public virtual Aeroporti AeroportoInizioNavigation { get; set; } = null!;
         public virtual Persone? PasseggeroNavigation { get; set; }
         public virtual Persone PilotaNavigation { get; set; } = null!;
+        public virtual TipiVoli TipoNavigation { get; set; } = null!;
         public virtual ICollection<Manutenzioni> Manutenzionis { get; set; }
     }
 }
