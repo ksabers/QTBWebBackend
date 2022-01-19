@@ -11,6 +11,9 @@ namespace QTBWebBackend.ViewModels
     {
         public long Id { get; set; }
         public string? Descrizione { get; set; }
+        public bool? Ordinaria { get; set; }
+        public long IdTipoManutenzione { get; set; }
+        public string? TipoManutenzione { get; set; }
         public DateTime Data { get; set; }
         public long Aereo { get; set; }
         public string? Modello { get; set; }

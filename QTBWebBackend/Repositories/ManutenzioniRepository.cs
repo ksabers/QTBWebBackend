@@ -21,6 +21,9 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = manutenzione.Id,
                     Descrizione = manutenzione.Descrizione,
+                    IdTipoManutenzione = manutenzione.Tipo,
+                    TipoManutenzione = manutenzione.TipoNavigation.Descrizione,
+                    Ordinaria = manutenzione.Ordinaria,
                     Data = manutenzione.Data,
                     Aereo = manutenzione.Aereo,
                     Modello = manutenzione.AereoNavigation.Modello,
@@ -40,6 +43,9 @@ namespace QTBWebBackend.Repositories
                 {
                     Id = manutenzione.Id,
                     Descrizione = manutenzione.Descrizione,
+                    IdTipoManutenzione = manutenzione.Tipo,
+                    TipoManutenzione = manutenzione.TipoNavigation.Descrizione,
+                    Ordinaria = manutenzione.Ordinaria,
                     Data = manutenzione.Data,
                     Aereo = manutenzione.Aereo,
                     Modello = manutenzione.AereoNavigation.Modello,
