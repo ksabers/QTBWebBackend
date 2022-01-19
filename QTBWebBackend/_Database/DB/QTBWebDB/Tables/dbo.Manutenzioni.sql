@@ -16,6 +16,20 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[TipiManutenzioni](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[descrizione] [nvarchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
+ CONSTRAINT [PK_TipiManutenzioni] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[TipiAeroporti](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[descrizione] [nvarchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -139,6 +153,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Manutenzioni](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ordinaria] [bit] NOT NULL CONSTRAINT [DF_Manutenzioni_ordinaria]  DEFAULT ((1)),
+	[tipo] [bigint] NOT NULL,
 	[descrizione] [nvarchar](max) COLLATE Latin1_General_CI_AS NOT NULL,
 	[data] [datetime] NOT NULL,
 	[aereo] [bigint] NOT NULL,
@@ -208,6 +224,11 @@ ALTER TABLE [dbo].[Manutenzioni]  WITH CHECK ADD  CONSTRAINT [FK_Manutenzioni_Pe
 REFERENCES [dbo].[Persone] ([ID])
 GO
 ALTER TABLE [dbo].[Manutenzioni] CHECK CONSTRAINT [FK_Manutenzioni_Persone]
+GO
+ALTER TABLE [dbo].[Manutenzioni]  WITH CHECK ADD  CONSTRAINT [FK_Manutenzioni_TipiManutenzioni] FOREIGN KEY([tipo])
+REFERENCES [dbo].[TipiManutenzioni] ([ID])
+GO
+ALTER TABLE [dbo].[Manutenzioni] CHECK CONSTRAINT [FK_Manutenzioni_TipiManutenzioni]
 GO
 ALTER TABLE [dbo].[Manutenzioni]  WITH CHECK ADD  CONSTRAINT [FK_Manutenzioni_Voli] FOREIGN KEY([volo])
 REFERENCES [dbo].[Voli] ([ID])
