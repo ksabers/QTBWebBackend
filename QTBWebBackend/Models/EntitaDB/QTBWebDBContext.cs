@@ -26,6 +26,7 @@ namespace QTBWebBackend.Models
         public virtual DbSet<ScadenzeAerei> ScadenzeAereis { get; set; } = null!;
         public virtual DbSet<ScadenzePersone> ScadenzePersones { get; set; } = null!;
         public virtual DbSet<TipiAeroporti> TipiAeroportis { get; set; } = null!;
+        public virtual DbSet<TipiManutenzioni> TipiManutenzionis { get; set; } = null!;
         public virtual DbSet<TipiScadenzeAerei> TipiScadenzeAereis { get; set; } = null!;
         public virtual DbSet<TipiScadenzePersone> TipiScadenzePersones { get; set; } = null!;
         public virtual DbSet<TipiVoli> TipiVolis { get; set; } = null!;
@@ -198,7 +199,14 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Descrizione).HasColumnName("descrizione");
 
+                entity.Property(e => e.Ordinaria)
+                    .IsRequired()
+                    .HasColumnName("ordinaria")
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.Persona).HasColumnName("persona");
+
+                entity.Property(e => e.Tipo).HasColumnName("tipo");
 
                 entity.Property(e => e.Volo).HasColumnName("volo");
 
@@ -212,6 +220,12 @@ namespace QTBWebBackend.Models
                     .WithMany(p => p.Manutenzionis)
                     .HasForeignKey(d => d.Persona)
                     .HasConstraintName("FK_Manutenzioni_Persone");
+
+                entity.HasOne(d => d.TipoNavigation)
+                    .WithMany(p => p.Manutenzionis)
+                    .HasForeignKey(d => d.Tipo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Manutenzioni_TipiManutenzioni");
 
                 entity.HasOne(d => d.VoloNavigation)
                     .WithMany(p => p.Manutenzionis)
@@ -359,6 +373,17 @@ namespace QTBWebBackend.Models
                     .HasColumnName("descrizione");
             });
 
+            modelBuilder.Entity<TipiManutenzioni>(entity =>
+            {
+                entity.ToTable("TipiManutenzioni");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Descrizione)
+                    .HasMaxLength(50)
+                    .HasColumnName("descrizione");
+            });
+
             modelBuilder.Entity<TipiScadenzeAerei>(entity =>
             {
                 entity.ToTable("TipiScadenzeAerei");
@@ -368,7 +393,9 @@ namespace QTBWebBackend.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Descrizione).HasMaxLength(50);
+                entity.Property(e => e.Descrizione)
+                    .HasMaxLength(50)
+                    .HasColumnName("descrizione");
             });
 
             modelBuilder.Entity<TipiScadenzePersone>(entity =>
