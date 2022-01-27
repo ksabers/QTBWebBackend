@@ -35,5 +35,23 @@ namespace QTBWebBackend.Repositories
                     Value = (aereo.MinutiPregressi + aereo.Volis.Sum(voli => voli.Durata)) / 60
                 });
         }
+
+        // Questa nella select interna avrebbe dovuto ritornare un .GroupBy(anno, mese) con un .Sum(carburante)
+        // ma con EF Core dalla 5 in poi non è più consentito perché non riesce a costruire correttamente la query
+        // quindi ritorniamo i voli non raggruppati e poi facciamo il raggruppamento lato client
+        public IEnumerable<ConsumoAerei> GetCarburanteAnnualePerAereo()
+        {
+            return _contesto.Aereis
+                .Select(aereo => new ConsumoAerei
+                {
+                    Marche = aereo.Marche,
+                    Voli = aereo.Volis
+                           .Select(volo => new ConsumoVoli
+                           {
+                               Data = volo.OraFine,
+                               Consumo = volo.CarburanteAggiuntoSx + volo.CarburanteAggiuntoDx
+                           }).ToArray()
+                });
+        }
     }
 }

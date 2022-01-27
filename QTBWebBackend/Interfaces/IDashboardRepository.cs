@@ -7,5 +7,6 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<OreDiVoloPerPilotaViewModel> GetOreDiVoloPerPilota();
         IEnumerable<OreDiVoloPerAereoViewModel> GetOreDiVoloPerAereo();
+        IEnumerable<ConsumoAerei> GetCarburanteAnnualePerAereo();
     }
 }

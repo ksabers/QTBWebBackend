@@ -25,17 +25,11 @@ namespace QTBWebBackend.Controllers
             return Ok(_repository.GetOreDiVoloPerAereo());
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        [HttpGet("api/dashboard/carburanteannuale")]
+        public ActionResult GetCarburanteAnnualePerAereo()
+        {
+            return Ok(_repository.GetCarburanteAnnualePerAereo());
+        }
 
     }
 }
