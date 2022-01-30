@@ -4,6 +4,7 @@ using QTBWebBackend.Models;
 using QTBWebBackend.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace QTBWebBackend.Repositories
 {
@@ -99,6 +100,17 @@ namespace QTBWebBackend.Repositories
                 }).FirstOrDefault();
         }
 
+        public async Task<ScadenzeAerei?> PostScadenzaAereo(ScadenzaAereoViewModel scadenzaModel)
+        {
+            var nuovaScadenza = new ScadenzeAerei();
+            nuovaScadenza.Risolta = false;
+            nuovaScadenza.Data = scadenzaModel.Data;
+            nuovaScadenza.Aereo = scadenzaModel.Aereo;
+            return null;
+
+
+        }
+
         //public ScadenzeViewModel? GetScadenzeInScadenzaSingolaPersona(long idPersona, int giorni)
         //{
         //    System.DateTime oggi = System.DateTime.Today;
@@ -156,7 +168,7 @@ namespace QTBWebBackend.Repositories
         //            Note = scadenza.Note
         //        });
         //}
-    
+
         //public ScadenzaAereoViewModel? GetScadenzaAereo(long idScadenza)
         //{
         //    return _contesto.ScadenzeAereis

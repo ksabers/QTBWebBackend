@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QTBWebBackend.Interfaces;
+using QTBWebBackend.ViewModels;
+using System.Threading.Tasks;
 
 namespace QTBWebBackend.Controllers
 {
@@ -23,6 +25,12 @@ namespace QTBWebBackend.Controllers
         public ActionResult GetScadenze(long idPersona)
         {
             return Ok(_repository.GetScadenze(idPersona));
+        }
+
+        [HttpPost("api/scadenze/aerei")]
+        public async Task<IActionResult> PostScadenzaAereo([FromBody] ScadenzaAereoViewModel scadenzaAereo)
+        {
+            return Ok(_repository.GetScadenze());
         }
 
         //[HttpGet("api/scadenze/persone/{numGiorni}/{idPersona}")]
