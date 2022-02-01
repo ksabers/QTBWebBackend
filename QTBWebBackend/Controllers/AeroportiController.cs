@@ -34,6 +34,18 @@ namespace QTBWebBackend.Controllers
             return View();
         }
 
+        [HttpGet("api/aeroporti/tipi")]
+        public IActionResult GetTipiAeroporti()
+        {
+            return Ok(_repository.GetTipiAeroporti());
+        }
+
+        [HttpGet("api/aeroporti/tipi/{idTipoAeroporto}")]
+        public IActionResult GetTipiAeroporti(long idTipoAeroporto)
+        {
+            return Ok(_repository.GetTipiAeroporti(idTipoAeroporto));
+        }
+
         [HttpPost("api/aeroporti")]
         public async Task<IActionResult> PostAeroporto([FromBody] AeroportoViewModel aeroporto)
         {

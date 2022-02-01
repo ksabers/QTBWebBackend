@@ -72,6 +72,29 @@ namespace QTBWebBackend.Repositories
                 .FirstOrDefault();
         }
 
+        public IEnumerable<TipoAeroportoViewModel> GetTipiAeroporti()
+        {
+            return _contesto.TipiAeroportis
+                .Select(tipoAeroporto => new TipoAeroportoViewModel
+                {
+                    Id = tipoAeroporto.Id,
+                    Descrizione = tipoAeroporto.Descrizione
+
+                }).OrderBy(tipoAeroporto => tipoAeroporto.Id);
+        }
+
+        public TipoAeroportoViewModel? GetTipiAeroporti(long idTipoAeroporto)
+        {
+            return _contesto.TipiAeroportis
+                .Where(tipoAeroporto => tipoAeroporto.Id == idTipoAeroporto)
+                .Select(tipoAeroporto => new TipoAeroportoViewModel
+                {
+                    Id = tipoAeroporto.Id,
+                    Descrizione = tipoAeroporto.Descrizione
+
+                }).FirstOrDefault();
+        }
+
         public async Task<Aeroporti?> PostAeroporto(AeroportoViewModel aeroportoModel)
         {
             var nuovoAeroporto = new Aeroporti();

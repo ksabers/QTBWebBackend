@@ -9,6 +9,8 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<AeroportoViewModel> GetAeroporti();
         AeroportoViewModel? GetAeroporti(long idAeroporto);
+        IEnumerable<TipoAeroportoViewModel> GetTipiAeroporti();
+        TipoAeroportoViewModel? GetTipiAeroporti(long idTipoAeroporto);
 
         Task<Aeroporti?> PostAeroporto(AeroportoViewModel aeroporto);
     }
