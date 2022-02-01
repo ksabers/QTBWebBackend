@@ -13,7 +13,7 @@ namespace QTBWebBackend.ViewModels
         public long IdTipoScadenza { get; set; }
         public string? TipoScadenza { get; set; }
         public bool Risolta { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
         public int? Minuti { get; set; }
         public string? Note { get; set; }
     }

@@ -15,115 +15,70 @@ namespace QTBWebBackend.Controllers
             _repository = repository;
         }
 
-        [HttpGet("api/scadenze/persone")]
-        public ActionResult GetScadenze()
+        [HttpGet("api/scadenzepersone")]
+        public IActionResult GetScadenzePersone()
         {
-            return Ok(_repository.GetScadenze());
+            return Ok(_repository.GetScadenzePersone());
         }
 
-        [HttpGet("api/scadenze/persone/{idPersona}")]
-        public ActionResult GetScadenze(long idPersona)
+        [HttpGet("api/scadenzeaerei")]
+        public IActionResult GetScadenzeAerei()
         {
-            return Ok(_repository.GetScadenze(idPersona));
+            return Ok(_repository.GetScadenzeAerei());
         }
 
-        [HttpPost("api/scadenze/aerei")]
-        public async Task<IActionResult> PostScadenzaAereo([FromBody] ScadenzaAereoViewModel scadenzaAereo)
+        [HttpGet("api/scadenzepersone/{idScadenza}")]
+        public IActionResult GetScadenzePersone(long idScadenza)
         {
-            return Ok(_repository.GetScadenze());
+            return Ok(_repository.GetScadenzePersone(idScadenza));
         }
 
-        //[HttpGet("api/scadenze/persone/{numGiorni}/{idPersona}")]
-        //public ActionResult GetScadenzeInScadenzaSingolaPersona(long idPersona, int numGiorni)
-        //{
-        //    return Ok(_repository.GetScadenzeInScadenzaSingolaPersona(idPersona, numGiorni));
-        //}
-
-        //[HttpGet("api/scadenzeaerei")]
-        //public ActionResult GetScadenzeAerei()
-        //{
-        //    return Ok(_repository.GetScadenzeAerei());
-        //}
-
-        //[HttpGet("api/scadenzeaerei/{idScadenza}")]
-        //public ActionResult GetScadenzaAereo(long idScadenza)
-        //{
-        //    return Ok(_repository.GetScadenzaAereo(idScadenza));
-        //}
-
-        //[HttpGet("api/scadenzepersone")]
-        //public ActionResult GetScadenzePersone()
-        //{
-        //    return Ok(_repository.GetScadenzePersone());
-        //}
-
-        //[HttpGet("api/scadenzepersone/{idScadenza}")]
-        //public ActionResult GetScadenzaPersona(long idScadenza)
-        //{
-        //    return Ok(_repository.GetScadenzaPersona(idScadenza));
-        //}
-
-        // GET: AereiController/Create
-        public ActionResult Create()
+        [HttpGet("api/scadenzeaerei/{idScadenza}")]
+        public IActionResult GetScadenzeAerei(long idScadenza)
         {
-            return View();
+            return Ok(_repository.GetScadenzeAerei(idScadenza));
         }
 
-        // POST: AereiController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpGet("api/scadenzepersone/persona/{idPersona}")]
+        public IActionResult GetScadenzePersoneDiUnaPersona(long idPersona)
         {
-            try
-            {
-                return RedirectToAction(nameof(GetScadenze));
-            }
-            catch
-            {
-                return View();
-            }
+            return Ok(_repository.GetScadenzePersoneDiUnaPersona(idPersona));
         }
 
-        // GET: AereiController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet("api/scadenzeaerei/persona/{idPersona}")]
+        public IActionResult GetScadenzeAereiDiUnaPersona(long idPersona)
         {
-            return View();
+            return Ok(_repository.GetScadenzeAereiDiUnaPersona(idPersona));
         }
 
-        // POST: AereiController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpGet("api/scadenzeaerei/aereo/{idAereo}")]
+        public IActionResult GetScadenzeAereiDiUnAereo(long idAereo)
         {
-            try
-            {
-                return RedirectToAction(nameof(GetScadenze));
-            }
-            catch
-            {
-                return View();
-            }
+            return Ok(_repository.GetScadenzeAereiDiUnAereo(idAereo));
         }
 
-        // GET: AereiController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet("api/scadenzepersone/tipi")]
+        public IActionResult GetTipiScadenzePersone()
         {
-            return View();
+            return Ok(_repository.GetTipiScadenzePersone());
         }
 
-        // POST: AereiController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpGet("api/scadenzeaerei/tipi")]
+        public IActionResult GetTipiScadenzeAerei()
         {
-            try
-            {
-                return RedirectToAction(nameof(GetScadenze));
-            }
-            catch
-            {
-                return View();
-            }
+            return Ok(_repository.GetTipiScadenzeAerei());
+        }
+
+        [HttpGet("api/scadenzepersone/tipi/{idTipoScadenza}")]
+        public IActionResult GetTipiScadenzePersone(long idTipoScadenza)
+        {
+            return Ok(_repository.GetTipiScadenzePersone(idTipoScadenza));
+        }
+
+        [HttpGet("api/scadenzeaerei/tipi/{idTipoScadenza}")]
+        public IActionResult GetTipiScadenzeAerei(long idTipoScadenza)
+        {
+            return Ok(_repository.GetTipiScadenzeAerei(idTipoScadenza));
         }
     }
 }

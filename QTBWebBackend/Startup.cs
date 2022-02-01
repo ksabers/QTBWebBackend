@@ -41,7 +41,6 @@ namespace QTBWebBackend
             services.AddScoped<IAeroportiRepository, AeroportiRepository>();
             services.AddScoped<ITipiAeroportiRepository, TipiAeroportiRepository>();
             services.AddScoped<ITipiVoliRepository, TipiVoliRepository>();
-            services.AddScoped<ITipiScadenzeAereiRepository, TipiScadenzeAereiRepository>();
             services.AddScoped<ITipiManutenzioniRepository, TipiManutenzioniRepository>();
             services.AddScoped<IPersoneRepository, PersoneRepository>();
             services.AddScoped<IVoliRepository, VoliRepository>();
