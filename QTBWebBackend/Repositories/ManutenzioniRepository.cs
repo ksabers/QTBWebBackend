@@ -56,5 +56,28 @@ namespace QTBWebBackend.Repositories
                     Volo = manutenzione.Volo
                 }).FirstOrDefault();
         }
+
+        public IEnumerable<TipoManutenzioneViewModel> GetTipiManutenzioni()
+        {
+            return _contesto.TipiManutenzionis
+                .Select(tipoManutenzione => new TipoManutenzioneViewModel
+                {
+                    Id = tipoManutenzione.Id,
+                    Descrizione = tipoManutenzione.Descrizione
+
+                }).OrderBy(tipoManutenzione => tipoManutenzione.Id);
+        }
+
+        public TipoManutenzioneViewModel? GetTipiManutenzioni(long idTipoManutenzione)
+        {
+            return _contesto.TipiManutenzionis
+                .Where(tipoManutenzione => tipoManutenzione.Id == idTipoManutenzione)
+                .Select(tipoManutenzione => new TipoManutenzioneViewModel
+                {
+                    Id = tipoManutenzione.Id,
+                    Descrizione = tipoManutenzione.Descrizione
+
+                }).FirstOrDefault();
+        }
     }
 }

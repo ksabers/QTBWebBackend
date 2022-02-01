@@ -7,5 +7,7 @@ namespace QTBWebBackend.Interfaces
     {
         IEnumerable<ManutenzioneViewModel> GetManutenzioni();
         ManutenzioneViewModel? GetManutenzioni(long idManutenzione);
+        IEnumerable<TipoManutenzioneViewModel> GetTipiManutenzioni();
+        TipoManutenzioneViewModel? GetTipiManutenzioni(long idTipoManutenzione);
     }
 }

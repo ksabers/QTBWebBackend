@@ -25,6 +25,18 @@ namespace QTBWebBackend.Controllers
             return Ok(_repository.GetManutenzioni(idManutenzione));
         }
 
+        [HttpGet("api/manutenzioni/tipi")]
+        public IActionResult GetTipiManutenzioni()
+        {
+            return Ok(_repository.GetTipiManutenzioni());
+        }
+
+        [HttpGet("api/manutenzioni/tipi/{idTipoManutenzione}")]
+        public IActionResult GetTipiManutenzioni(long idTipoManutenzione)
+        {
+            return Ok(_repository.GetTipiManutenzioni(idTipoManutenzione));
+        }
+
 
         // GET: AeroportiController/Create
         public ActionResult Create()
