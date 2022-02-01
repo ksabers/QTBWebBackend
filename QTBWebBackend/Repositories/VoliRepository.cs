@@ -151,6 +151,29 @@ namespace QTBWebBackend.Repositories
                 .FirstOrDefault();
         }
 
+        public IEnumerable<TipoVoloViewModel> GetTipiVoli()
+        {
+            return _contesto.TipiVolis
+                .Select(tipoVolo => new TipoVoloViewModel
+                {
+                    Id = tipoVolo.Id,
+                    Descrizione = tipoVolo.Descrizione
+
+                }).OrderBy(tipoVolo => tipoVolo.Id);
+        }
+
+        public TipoVoloViewModel? GetTipiVoli(long idTipoVolo)
+        {
+            return _contesto.TipiVolis
+                .Where(tipoVolo => tipoVolo.Id == idTipoVolo)
+                .Select(tipoVolo => new TipoVoloViewModel
+                {
+                    Id = tipoVolo.Id,
+                    Descrizione = tipoVolo.Descrizione
+
+                }).FirstOrDefault();
+        }
+
         public async Task<Voli?> PostVolo(VoloViewModel voloModel)
         {
             var nuovoVolo = new Voli();

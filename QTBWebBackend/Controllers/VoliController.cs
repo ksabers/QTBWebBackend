@@ -35,6 +35,17 @@ namespace QTBWebBackend.Controllers
             return Ok(_repository.GetVoli(idVolo));
         }
 
+        [HttpGet("api/voli/tipi")]
+        public IActionResult GetTipiVoli()
+        {
+            return Ok(_repository.GetTipiVoli());
+        }
+
+        [HttpGet("api/voli/tipi/{idTipoVolo}")]
+        public IActionResult GetTipiVoli(long idTipoVolo)
+        {
+            return Ok(_repository.GetTipiVoli(idTipoVolo));
+        }
 
         [HttpPost("api/voli")]
         public async Task<IActionResult> PostVolo([FromBody] VoloViewModel volo)
@@ -47,59 +58,6 @@ namespace QTBWebBackend.Controllers
             else
             {
                 return BadRequest("Errore");
-            }
-        }
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(GetVoli));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AeroportiController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: AeroportiController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(GetVoli));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AeroportiController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: AeroportiController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(GetVoli));
-            }
-            catch
-            {
-                return View();
             }
         }
     }
