@@ -13,7 +13,14 @@ namespace QTBWebBackend.ViewModels
         public bool Pilota { get; set; }
         public string? Nome { get; set; }
         public string? Cognome { get; set; }
+        public string? Indirizzo { get; set; }
+        public DateTime? DataNascita { get; set; }
+        public string? LuogoNascita { get; set; }
+        public string? CodiceFiscale { get; set; }
         public string? Email { get; set; }
+        public string? Citta { get; set; }
+        public string? Cap { get; set; }
+        public string? Telefono { get; set; }
         public int NumeroVoliDaPilota { get; set; }
         public int NumeroVoliDaPasseggero { get; set; }
         public int? MinutiPregressi { get; set; }

@@ -251,13 +251,25 @@ namespace QTBWebBackend.Models
                     .HasMaxLength(50)
                     .HasColumnName("citta");
 
+                entity.Property(e => e.CodiceFiscale)
+                    .HasMaxLength(20)
+                    .HasColumnName("codice_fiscale");
+
                 entity.Property(e => e.Cognome)
                     .HasMaxLength(50)
                     .HasColumnName("cognome");
 
+                entity.Property(e => e.DataNascita)
+                    .HasColumnType("date")
+                    .HasColumnName("data_nascita");
+
                 entity.Property(e => e.Indirizzo)
                     .HasMaxLength(50)
                     .HasColumnName("indirizzo");
+
+                entity.Property(e => e.LuogoNascita)
+                    .HasMaxLength(50)
+                    .HasColumnName("luogo_nascita");
 
                 entity.Property(e => e.MinutiPregressi).HasColumnName("minuti_pregressi");
 

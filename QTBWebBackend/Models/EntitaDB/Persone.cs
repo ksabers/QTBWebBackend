@@ -19,6 +19,9 @@ namespace QTBWebBackend.Models
         public string Nome { get; set; } = null!;
         public string Cognome { get; set; } = null!;
         public string? Indirizzo { get; set; }
+        public DateTime? DataNascita { get; set; }
+        public string? LuogoNascita { get; set; }
+        public string? CodiceFiscale { get; set; }
         public string? Citta { get; set; }
         public string? Cap { get; set; }
         public string? Telefono { get; set; }

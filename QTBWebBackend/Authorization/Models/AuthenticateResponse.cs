@@ -10,6 +10,8 @@ namespace QTBWebBackend.Models
         public long Persona { get; set; }
         public string? Nome { get; set; }
         public string? Cognome { get; set; }
+        public int? MinutiPregressi { get; set; }
+        public int? MinutiVoloDaPilota { get; set; }
         public string? Ruolo { get; set; }
         public string? Token { get; set; }
 

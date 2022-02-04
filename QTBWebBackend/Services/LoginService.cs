@@ -45,6 +45,8 @@ namespace QTBWebBackend.Services
                         Persona = log.Persona,
                         Nome = log.PersonaNavigation.Nome,
                         Cognome = log.PersonaNavigation.Cognome,
+                        MinutiPregressi = log.PersonaNavigation.MinutiPregressi,
+                        MinutiVoloDaPilota = log.PersonaNavigation.VoliPilotaNavigations.Sum(volo => volo.Durata),
                         Ruolo = log.RuoloNavigation.Descrizione        
                     }
                 )
