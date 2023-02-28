@@ -15,7 +15,7 @@ namespace QTBWebBackend.ViewModels
     }
     public class ConsumoAerei
     {
-        public string Marche { get; set; }
+        public string? Marche { get; set; }
         public ConsumoVoli[]? Voli { get; set; }
     }
 
