@@ -17,7 +17,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<PersonaViewModel> GetPersone()
         {
-            return _contesto.Persones
+            return _contesto.Persone
                 .Select(persona => new PersonaViewModel
                 {
                     Id = persona.Id,
@@ -28,19 +28,19 @@ namespace QTBWebBackend.Repositories
                     DataNascita = persona.DataNascita,
                     LuogoNascita = persona.LuogoNascita,
                     CodiceFiscale = persona.CodiceFiscale,
-                    Email = persona.Logins.First().Email,
+                    Email = persona.Login.First().Email,
                     Citta = persona.Citta,
                     Cap = persona.Cap,
                     Telefono = persona.Telefono,
-                    NumeroVoliDaPilota = persona.VoliPilotaNavigations.Count(),
-                    NumeroVoliDaPasseggero = persona.VoliPasseggeroNavigations.Count(),
+                    NumeroVoliDaPilota = persona.VoliPilotaNavigation.Count(),
+                    NumeroVoliDaPasseggero = persona.VoliPasseggeroNavigation.Count(),
                     MinutiPregressi = persona.MinutiPregressi,
-                    MinutiVoloDaPilota = persona.VoliPilotaNavigations.Sum(voli => voli.Durata),
-                    MinutiVoloDaPasseggero = persona.VoliPasseggeroNavigations.Sum(voli => voli.Durata),
+                    MinutiVoloDaPilota = persona.VoliPilotaNavigation.Sum(voli => voli.Durata),
+                    MinutiVoloDaPasseggero = persona.VoliPasseggeroNavigation.Sum(voli => voli.Durata),
                     IdAeroportoBase = persona.AeroportoBaseNavigation.Id,
                     AeroportoBase = persona.AeroportoBaseNavigation.Nome,
                     Tessera = persona.Tessera,
-                    AereiPosseduti = persona.AereiPossedutis.Select(aereo => new AereoPossedutoViewModel
+                    AereiPosseduti = persona.AereiPosseduti.Select(aereo => new AereoPossedutoViewModel
                     {
                         Id = aereo.AereoNavigation.Id,
                         Costruttore = aereo.AereoNavigation.Costruttore,
@@ -55,7 +55,7 @@ namespace QTBWebBackend.Repositories
 
         public PersonaViewModel? GetPersone(long idPersona)
         {
-            return _contesto.Persones
+            return _contesto.Persone
                 .Where(persona => persona.Id == idPersona)
                 .Select(persona => new PersonaViewModel
                 {
@@ -67,19 +67,19 @@ namespace QTBWebBackend.Repositories
                     DataNascita = persona.DataNascita,
                     LuogoNascita = persona.LuogoNascita,
                     CodiceFiscale = persona.CodiceFiscale,
-                    Email = persona.Logins.First().Email,
+                    Email = persona.Login.First().Email,
                     Citta = persona.Citta,
                     Cap = persona.Cap,
                     Telefono = persona.Telefono,
-                    NumeroVoliDaPilota = persona.VoliPilotaNavigations.Count(),
-                    NumeroVoliDaPasseggero = persona.VoliPasseggeroNavigations.Count(),
+                    NumeroVoliDaPilota = persona.VoliPilotaNavigation.Count(),
+                    NumeroVoliDaPasseggero = persona.VoliPasseggeroNavigation.Count(),
                     MinutiPregressi = persona.MinutiPregressi,
-                    MinutiVoloDaPilota = persona.VoliPilotaNavigations.Sum(voli => voli.Durata),
-                    MinutiVoloDaPasseggero = persona.VoliPasseggeroNavigations.Sum(voli => voli.Durata),
+                    MinutiVoloDaPilota = persona.VoliPilotaNavigation.Sum(voli => voli.Durata),
+                    MinutiVoloDaPasseggero = persona.VoliPasseggeroNavigation.Sum(voli => voli.Durata),
                     IdAeroportoBase = persona.AeroportoBaseNavigation.Id,
                     AeroportoBase = persona.AeroportoBaseNavigation.Nome,
                     Tessera = persona.Tessera,
-                    AereiPosseduti = persona.AereiPossedutis.Select(aereo => new AereoPossedutoViewModel
+                    AereiPosseduti = persona.AereiPosseduti.Select(aereo => new AereoPossedutoViewModel
                     {
                         Id = aereo.AereoNavigation.Id,
                         Costruttore = aereo.AereoNavigation.Costruttore,

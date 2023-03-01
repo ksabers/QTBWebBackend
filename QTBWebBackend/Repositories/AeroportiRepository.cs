@@ -18,7 +18,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<AeroportoViewModel> GetAeroporti()
         {
-            return _contesto.Aeroportis
+            return _contesto.Aeroporti
                 .Select(aeroporto => new AeroportoViewModel
                 {
                     Id = aeroporto.Id,
@@ -45,7 +45,7 @@ namespace QTBWebBackend.Repositories
 
         public AeroportoViewModel? GetAeroporti(long idAeroporto)
         {
-            return _contesto.Aeroportis
+            return _contesto.Aeroporti
                 .Where(aeroporto => aeroporto.Id == idAeroporto)
                 .Select(aeroporto => new AeroportoViewModel
                 {
@@ -74,7 +74,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<TipoAeroportoViewModel> GetTipiAeroporti()
         {
-            return _contesto.TipiAeroportis
+            return _contesto.TipiAeroporti
                 .Select(tipoAeroporto => new TipoAeroportoViewModel
                 {
                     Id = tipoAeroporto.Id,
@@ -85,7 +85,7 @@ namespace QTBWebBackend.Repositories
 
         public TipoAeroportoViewModel? GetTipiAeroporti(long idTipoAeroporto)
         {
-            return _contesto.TipiAeroportis
+            return _contesto.TipiAeroporti
                 .Where(tipoAeroporto => tipoAeroporto.Id == idTipoAeroporto)
                 .Select(tipoAeroporto => new TipoAeroportoViewModel
                 {

@@ -1,0 +1,97 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "QTBWebDBContext",
+   "ContextNamespace": "Models",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Models",
+   "OutputContextPath": "Models\\EntitaDB",
+   "OutputPath": "Models\\EntitaDB",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "QTBWebBackend",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Aerei]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AereiPosseduti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Aeroporti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Login]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Manutenzioni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Persone]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ruoli]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ScadenzeAerei]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ScadenzePersone]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipiAeroporti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipiManutenzioni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipiScadenzeAerei]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipiScadenzePersone]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipiVoli]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Voli]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "nbge22019.QTBWebDB.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

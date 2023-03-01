@@ -16,7 +16,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<ManutenzioneViewModel> GetManutenzioni()
         {
-            return _contesto.Manutenzionis
+            return _contesto.Manutenzioni
                 .Select(manutenzione => new ManutenzioneViewModel
                 {
                     Id = manutenzione.Id,
@@ -37,7 +37,7 @@ namespace QTBWebBackend.Repositories
 
         public ManutenzioneViewModel? GetManutenzioni(long idManutenzione)
         {
-            return _contesto.Manutenzionis
+            return _contesto.Manutenzioni
                 .Where(manutenzione => manutenzione.Id == idManutenzione)
                 .Select(manutenzione => new ManutenzioneViewModel
                 {
@@ -59,7 +59,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<TipoManutenzioneViewModel> GetTipiManutenzioni()
         {
-            return _contesto.TipiManutenzionis
+            return _contesto.TipiManutenzioni
                 .Select(tipoManutenzione => new TipoManutenzioneViewModel
                 {
                     Id = tipoManutenzione.Id,
@@ -70,7 +70,7 @@ namespace QTBWebBackend.Repositories
 
         public TipoManutenzioneViewModel? GetTipiManutenzioni(long idTipoManutenzione)
         {
-            return _contesto.TipiManutenzionis
+            return _contesto.TipiManutenzioni
                 .Where(tipoManutenzione => tipoManutenzione.Id == idTipoManutenzione)
                 .Select(tipoManutenzione => new TipoManutenzioneViewModel
                 {

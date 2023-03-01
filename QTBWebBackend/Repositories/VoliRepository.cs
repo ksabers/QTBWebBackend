@@ -18,7 +18,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<VoloViewModel> GetVoli()
         {
-            return _contesto.Volis
+            return _contesto.Voli
                 .Select(volo => new VoloViewModel
                 {
                     Id = volo.Id,
@@ -62,7 +62,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<VoloViewModel> GetVoliDiUnAereo(long idAereo)
         {
-            return _contesto.Volis
+            return _contesto.Voli
                 .Where(volo => volo.Aereo == idAereo)
                 .Select(volo => new VoloViewModel
                 {
@@ -107,7 +107,7 @@ namespace QTBWebBackend.Repositories
 
         public VoloViewModel? GetVoli(long idVolo)
         {
-            return _contesto.Volis
+            return _contesto.Voli
                 .Where(volo => volo.Id == idVolo)
                 .Select(volo => new VoloViewModel
                 {
@@ -153,7 +153,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<TipoVoloViewModel> GetTipiVoli()
         {
-            return _contesto.TipiVolis
+            return _contesto.TipiVoli
                 .Select(tipoVolo => new TipoVoloViewModel
                 {
                     Id = tipoVolo.Id,
@@ -164,7 +164,7 @@ namespace QTBWebBackend.Repositories
 
         public TipoVoloViewModel? GetTipiVoli(long idTipoVolo)
         {
-            return _contesto.TipiVolis
+            return _contesto.TipiVoli
                 .Where(tipoVolo => tipoVolo.Id == idTipoVolo)
                 .Select(tipoVolo => new TipoVoloViewModel
                 {

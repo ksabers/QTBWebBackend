@@ -17,7 +17,7 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<AereoViewModel> GetAerei()
         {
-            return _contesto.Aereis
+            return _contesto.Aerei
                 .Select(aereo => new AereoViewModel
                 {
                     Id = aereo.Id,
@@ -25,10 +25,10 @@ namespace QTBWebBackend.Repositories
                     Modello = aereo.Modello,
                     Marche = aereo.Marche,
                     MinutiPregressi = aereo.MinutiPregressi,
-                    MinutiVolo = aereo.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = aereo.Voli.Sum(volo => volo.Durata),
                     PesoVuoto = aereo.PesoVuoto,
-                    VoloPiuRecente = aereo.Volis.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
-                    Proprietari = aereo.AereiPossedutis.Select(proprietario => new ProprietarioViewModel
+                    VoloPiuRecente = aereo.Voli.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
+                    Proprietari = aereo.AereiPosseduti.Select(proprietario => new ProprietarioViewModel
                     {
                         Id = proprietario.PersonaNavigation.Id,
                         Nome = proprietario.PersonaNavigation.Nome,
@@ -40,7 +40,7 @@ namespace QTBWebBackend.Repositories
 
         public AereoViewModel? GetAerei(long idAereo)
         {
-            return _contesto.Aereis
+            return _contesto.Aerei
                 .Where(aereo => aereo.Id == idAereo)
                 .Select(aereo => new AereoViewModel
                 {
@@ -49,10 +49,10 @@ namespace QTBWebBackend.Repositories
                     Modello = aereo.Modello,
                     Marche = aereo.Marche,
                     MinutiPregressi = aereo.MinutiPregressi,
-                    MinutiVolo = aereo.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = aereo.Voli.Sum(volo => volo.Durata),
                     PesoVuoto = aereo.PesoVuoto,
-                    VoloPiuRecente = aereo.Volis.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
-                    Proprietari = aereo.AereiPossedutis.Select(proprietario => new ProprietarioViewModel
+                    VoloPiuRecente = aereo.Voli.OrderByDescending(volo => volo.OrametroOreFine * 60 + volo.OrametroMinutiFine).FirstOrDefault(),
+                    Proprietari = aereo.AereiPosseduti.Select(proprietario => new ProprietarioViewModel
                     {
                         Id = proprietario.PersonaNavigation.Id,
                         Nome = proprietario.PersonaNavigation.Nome,

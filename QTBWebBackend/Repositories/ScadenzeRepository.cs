@@ -20,7 +20,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzepersone
         public IEnumerable<ScadenzaPersonaViewModel> GetScadenzePersone()
         {
-            return _contesto.ScadenzePersones
+            return _contesto.ScadenzePersone
                 .Where(scadenza => scadenza.Risolta == false)
                 .Select(scadenza => new ScadenzaPersonaViewModel
                 {
@@ -40,7 +40,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei
         public IEnumerable<ScadenzaAereoViewModel> GetScadenzeAerei()
         {
-            return _contesto.ScadenzeAereis
+            return _contesto.ScadenzeAerei
                 .Where(scadenza => scadenza.Risolta == false)
                 .Select(scadenza => new ScadenzaAereoViewModel
                 {
@@ -49,7 +49,7 @@ namespace QTBWebBackend.Repositories
                     Modello = scadenza.AereoNavigation.Modello,
                     Marche = scadenza.AereoNavigation.Marche,
                     MinutiPregressi = scadenza.AereoNavigation.MinutiPregressi,
-                    MinutiVolo = scadenza.AereoNavigation.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = scadenza.AereoNavigation.Voli.Sum(volo => volo.Durata),
                     IdTipoScadenza = scadenza.TipoScadenza,
                     TipoScadenza = scadenza.TipoScadenzaNavigation.Descrizione,
                     Risolta = scadenza.Risolta,
@@ -62,7 +62,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzepersone/id
         public ScadenzaPersonaViewModel? GetScadenzePersone(long idScadenza)
         {
-            return _contesto.ScadenzePersones
+            return _contesto.ScadenzePersone
                 .Where(scadenza => scadenza.Id == idScadenza)
                 .Select(scadenza => new ScadenzaPersonaViewModel
                 {
@@ -82,7 +82,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei/id
         public ScadenzaAereoViewModel? GetScadenzeAerei(long idScadenza)
         {
-            return _contesto.ScadenzeAereis
+            return _contesto.ScadenzeAerei
                 .Where(scadenza => scadenza.Id == idScadenza)
                 .Select(scadenza => new ScadenzaAereoViewModel
                 {
@@ -91,7 +91,7 @@ namespace QTBWebBackend.Repositories
                     Modello = scadenza.AereoNavigation.Modello,
                     Marche = scadenza.AereoNavigation.Marche,
                     MinutiPregressi = scadenza.AereoNavigation.MinutiPregressi,
-                    MinutiVolo = scadenza.AereoNavigation.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = scadenza.AereoNavigation.Voli.Sum(volo => volo.Durata),
                     IdTipoScadenza = scadenza.TipoScadenza,
                     TipoScadenza = scadenza.TipoScadenzaNavigation.Descrizione,
                     Risolta = scadenza.Risolta,
@@ -104,7 +104,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzepersone/persona/id
         public IEnumerable<ScadenzaPersonaViewModel> GetScadenzePersoneDiUnaPersona(long idPersona)
         {
-            return _contesto.ScadenzePersones
+            return _contesto.ScadenzePersone
                 .Where(scadenza => scadenza.Persona == idPersona)
                 .Where(scadenza => scadenza.Risolta == false)
                 .Select(scadenza => new ScadenzaPersonaViewModel
@@ -125,8 +125,8 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei/persona/id
         public IEnumerable<ScadenzaAereoViewModel> GetScadenzeAereiDiUnaPersona(long idPersona)
         {
-            return _contesto.ScadenzeAereis
-                .Where(scadenza => scadenza.AereoNavigation.AereiPossedutis.Any(aereo => aereo.Persona == idPersona))
+            return _contesto.ScadenzeAerei
+                .Where(scadenza => scadenza.AereoNavigation.AereiPosseduti.Any(aereo => aereo.Persona == idPersona))
                 .Where(scadenza => scadenza.Risolta == false)
                 .Select(scadenza => new ScadenzaAereoViewModel
                 {
@@ -134,7 +134,7 @@ namespace QTBWebBackend.Repositories
                     Modello = scadenza.AereoNavigation.Modello,
                     Marche = scadenza.AereoNavigation.Marche,
                     MinutiPregressi = scadenza.AereoNavigation.MinutiPregressi,
-                    MinutiVolo = scadenza.AereoNavigation.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = scadenza.AereoNavigation.Voli.Sum(volo => volo.Durata),
                     IdTipoScadenza = scadenza.TipoScadenza,
                     TipoScadenza = scadenza.TipoScadenzaNavigation.Descrizione,
                     Risolta = scadenza.Risolta,
@@ -147,7 +147,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei/aereo/id
         public IEnumerable<ScadenzaAereoViewModel> GetScadenzeAereiDiUnAereo(long idAereo)
         {
-            return _contesto.ScadenzeAereis
+            return _contesto.ScadenzeAerei
                 .Where(scadenza => scadenza.Aereo == idAereo)
                 .Where(scadenza => scadenza.Risolta == false)
                 .Select(scadenza => new ScadenzaAereoViewModel
@@ -156,7 +156,7 @@ namespace QTBWebBackend.Repositories
                     Modello = scadenza.AereoNavigation.Modello,
                     Marche = scadenza.AereoNavigation.Marche,
                     MinutiPregressi = scadenza.AereoNavigation.MinutiPregressi,
-                    MinutiVolo = scadenza.AereoNavigation.Volis.Sum(volo => volo.Durata),
+                    MinutiVolo = scadenza.AereoNavigation.Voli.Sum(volo => volo.Durata),
                     IdTipoScadenza = scadenza.TipoScadenza,
                     TipoScadenza = scadenza.TipoScadenzaNavigation.Descrizione,
                     Risolta = scadenza.Risolta,
@@ -169,7 +169,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzepersone/tipi
         public IEnumerable<TipoScadenzaPersonaViewModel> GetTipiScadenzePersone()
         {
-            return _contesto.TipiScadenzePersones
+            return _contesto.TipiScadenzePersone
                 .Select(tipo => new TipoScadenzaPersonaViewModel
                 {
                     Id = tipo.Id,
@@ -180,7 +180,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzepersone/tipi/id
         public TipoScadenzaPersonaViewModel? GetTipiScadenzePersone(long idTipoScadenzaPersona)
         {
-            return _contesto.TipiScadenzePersones
+            return _contesto.TipiScadenzePersone
                 .Where(tipo => tipo.Id == idTipoScadenzaPersona)
                 .Select(tipo => new TipoScadenzaPersonaViewModel
                 {
@@ -192,7 +192,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei/tipi
         public IEnumerable<TipoScadenzaAereoViewModel> GetTipiScadenzeAerei()
         {
-            return _contesto.TipiScadenzeAereis
+            return _contesto.TipiScadenzeAerei
                 .Select(tipoScadenzaAereo => new TipoScadenzaAereoViewModel
                 {
                     Id = tipoScadenzaAereo.Id,
@@ -204,7 +204,7 @@ namespace QTBWebBackend.Repositories
         // GET scadenzeaerei/tipi/id
         public TipoScadenzaAereoViewModel? GetTipiScadenzeAerei(long idTipoScadenzaAereo)
         {
-            return _contesto.TipiScadenzeAereis
+            return _contesto.TipiScadenzeAerei
                 .Where(tipoScadenzaAereo => tipoScadenzaAereo.Id == idTipoScadenzaAereo)
                 .Select(tipoScadenzaAereo => new TipoScadenzaAereoViewModel
                 {

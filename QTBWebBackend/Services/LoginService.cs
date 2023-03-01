@@ -36,7 +36,7 @@ namespace QTBWebBackend.Services
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var login = _contesto.Logins
+            var login = _contesto.Login
                 .Where(log => log.Email.Trim().ToLower() == model.Email.Trim().ToLower() && log.Password == model.Password)
                 .Select(log => new AuthenticateResponse 
                     { 
@@ -46,7 +46,7 @@ namespace QTBWebBackend.Services
                         Nome = log.PersonaNavigation.Nome,
                         Cognome = log.PersonaNavigation.Cognome,
                         MinutiPregressi = log.PersonaNavigation.MinutiPregressi,
-                        MinutiVoloDaPilota = log.PersonaNavigation.VoliPilotaNavigations.Sum(volo => volo.Durata),
+                        MinutiVoloDaPilota = log.PersonaNavigation.VoliPilotaNavigation.Sum(volo => volo.Durata),
                         Ruolo = log.RuoloNavigation.Descrizione        
                     }
                 )

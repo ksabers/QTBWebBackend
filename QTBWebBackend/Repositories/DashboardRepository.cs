@@ -17,22 +17,22 @@ namespace QTBWebBackend.Repositories
 
         public IEnumerable<OreDiVoloPerPilotaViewModel> GetOreDiVoloPerPilota()
         {
-            return _contesto.Persones
+            return _contesto.Persone
                 .Where(persona => persona.Pilota == true)
                 .Select(persona => new OreDiVoloPerPilotaViewModel
                 {
                     Name = persona.Nome + " " + persona.Cognome,
-                    Value = (persona.MinutiPregressi + persona.VoliPilotaNavigations.Sum(voli => voli.Durata)) / 60
+                    Value = (persona.MinutiPregressi + persona.VoliPilotaNavigation.Sum(voli => voli.Durata)) / 60
                 });
         }
 
         public IEnumerable<OreDiVoloPerAereoViewModel> GetOreDiVoloPerAereo()
         {
-            return _contesto.Aereis
+            return _contesto.Aerei
                 .Select(aereo => new OreDiVoloPerAereoViewModel
                 {
                     Name = aereo.Marche,
-                    Value = (aereo.MinutiPregressi + aereo.Volis.Sum(voli => voli.Durata)) / 60
+                    Value = (aereo.MinutiPregressi + aereo.Voli.Sum(voli => voli.Durata)) / 60
                 });
         }
 
@@ -41,11 +41,11 @@ namespace QTBWebBackend.Repositories
         // quindi ritorniamo i voli non raggruppati e poi facciamo il raggruppamento lato client
         public IEnumerable<ConsumoAerei> GetCarburanteAnnualePerAereo()
         {
-            return _contesto.Aereis
+            return _contesto.Aerei
                 .Select(aereo => new ConsumoAerei
                 {
                     Marche = aereo.Marche,
-                    Voli = aereo.Volis
+                    Voli = aereo.Voli
                            .Select(volo => new ConsumoVoli
                            {
                                Data = volo.OraFine,
