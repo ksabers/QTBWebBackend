@@ -367,7 +367,6 @@ public partial class QTBWebDBContext : DbContext
             entity.Property(e => e.Durata)
                 .HasComputedColumnSql("(([orametro_ore_fine]*(60)+[orametro_minuti_fine])-([orametro_ore_inizio]*(60)+[orametro_minuti_inizio]))", true)
                 .HasColumnName("durata");
-            entity.Property(e => e.InCorso).HasColumnName("in_corso");
             entity.Property(e => e.Olio).HasColumnName("olio");
             entity.Property(e => e.OraFine)
                 .HasColumnType("datetime")

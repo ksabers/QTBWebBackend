@@ -9,8 +9,6 @@ public partial class Voli
 {
     public long Id { get; set; }
 
-    public bool InCorso { get; set; }
-
     public string Descrizione { get; set; }
 
     public long Tipo { get; set; }
